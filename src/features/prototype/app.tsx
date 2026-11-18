@@ -17,6 +17,7 @@ import {
 import { EmployerJobs, EmployerJobEditor, CompanyEditor } from "./employer";
 import { SettingsPage, PrivacyPage } from "./settings";
 import { CasePage } from "./case";
+import { ScopeReviewPage } from "@/features/scope-review/scope-review-page";
 function AppRoutes() {
   return (
     <Routes>
@@ -122,6 +123,14 @@ function AppRoutes() {
           element={
             <RequireRole role="employer">
               <ApplicationsPage employer />
+            </RequireRole>
+          }
+        />
+        <Route
+          path="app/kandydaci/oferta/:jobId"
+          element={
+            <RequireRole role="employer">
+              <ScopeReviewPage />
             </RequireRole>
           }
         />

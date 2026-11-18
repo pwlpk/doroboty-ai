@@ -2,6 +2,14 @@
 
 The application loads local Geist Serif Regular 400 from `docs/design-system/agent-kit/assets/fonts/GeistSerif-Regular.woff2` through Vite. Its SIL OFL license remains beside the font. All headings use this weight without synthetic bold. Body and controls use Arial/Helvetica/system sans; they make no remote font requests.
 
+## Direction E fonts (workspace shell and scope review list)
+
+`direction-e.css` loads these local files for the `.shell-e` workspace shell and `.scope-page`; no remote requests. All are SIL Open Font License 1.1, copied unchanged from the Fontsource 5.3.0 npm packages (`@fontsource/geist-sans`, `@fontsource/inter`, `@fontsource/space-mono`); licences sit beside them as `LICENSE-*.txt`. No npm dependency was added.
+
+- Geist 500: `geist-sans-latin-500-normal.woff2` (headings). Fontsource ships a single Latin subset for Geist.
+- Inter 400/500: `inter-latin-*-normal.woff2` and `inter-latin-ext-*-normal.woff2` (body; latin-ext covers Polish diacritics).
+- Space Mono 400: `space-mono-latin-400-normal.woff2`, `space-mono-latin-ext-400-normal.woff2` (uppercase labels).
+
 ## Retained historical assets
 
 # Timeless Sans Variable

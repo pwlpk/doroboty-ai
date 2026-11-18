@@ -223,6 +223,7 @@ export function JobsPage() {
               <button
                 key={key}
                 className={cn("pp-category-tab", (filters.category ?? "") === key && "pp-selected")}
+                data-cat={key || undefined}
                 aria-pressed={(filters.category ?? "") === key}
                 onClick={() => change("category", key)}
               >
@@ -372,7 +373,9 @@ export function JobPage() {
                 Opublikowano {new Intl.DateTimeFormat("pl-PL").format(new Date(job.publishedAt))}
               </p>
             </div>
-            <span className="pp-offer-category">{categoryLabels[job.category]}</span>
+            <span className="pp-offer-category" data-cat={job.category}>
+              {categoryLabels[job.category]}
+            </span>
           </div>
           <h1>{job.title}</h1>
           <div className="pp-offer-key-facts">

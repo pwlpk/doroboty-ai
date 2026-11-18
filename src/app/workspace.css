@@ -203,7 +203,7 @@ a {
   width: 6px;
   height: 6px;
   background: var(--gui-color-1);
-  border-radius: var(--gui-radius-full);
+  border-radius: 0;
 }
 .main-content {
   width: 100%;
@@ -309,7 +309,7 @@ a {
   display: grid;
   place-items: center;
   border: 3px solid var(--background);
-  border-radius: var(--gui-radius-full);
+  border-radius: 0;
   background: var(--gui-color-1);
   color: var(--gui-accent-text-accessible);
   box-shadow: var(--gui-shadow-m);

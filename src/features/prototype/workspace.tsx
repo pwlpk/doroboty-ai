@@ -16,6 +16,7 @@ import { CvAttachment } from "./cv-attachment";
 import { MatchScore } from "./match-score";
 import { RecruitingApplication } from "./recruiting-application";
 import { CandidateApplication } from "./candidate-application";
+import { scenario as scopeScenario } from "@/features/scope-review/scenario";
 
 export function Field({ label, children }: { label: string; children: ReactNode }) {
   return (
@@ -415,6 +416,7 @@ export function ApplicationsPage({ employer = false }: { employer?: boolean }) {
   const person = currentPerson(state)!;
   const [query, setQuery] = useState("");
   const [params] = useSearchParams();
+  const scopeJob = state.jobs.find((x) => x.id === scopeScenario.jobId);
   const applications = state.applications.filter(
     (x) =>
       (employer ? x.companyId === person.companyId : x.candidateId === person.id) &&
@@ -429,6 +431,21 @@ export function ApplicationsPage({ employer = false }: { employer?: boolean }) {
         <Notice>
           <CheckCircle2 className="inline size-5" /> Aplikacja została wysłana.
         </Notice>
+      )}
+      {employer && scopeJob && scopeJob.companyId === person.companyId && (
+        <article className="prototype-panel mb-6">
+          <div className="flex flex-wrap items-start justify-between gap-4">
+            <div>
+              <h2 className="text-2xl">{scopeJob.title}: 6 aplikacji do przejrzenia</h2>
+              <p className="mt-2 text-muted-foreground">
+                Lista z zakresem pracy kandydatów i podsumowaniem AI. Scenariusz testu.
+              </p>
+            </div>
+            <Link className={buttonVariants()} to={`/app/kandydaci/oferta/${scopeJob.id}`}>
+              Przejrzyj aplikacje
+            </Link>
+          </div>
+        </article>
       )}
       <Field label={employer ? "Szukaj kandydata lub oferty" : "Szukaj oferty"}>
         <Input value={query} onChange={(e) => setQuery(e.target.value)} />

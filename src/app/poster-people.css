@@ -8,25 +8,25 @@ h6,
 [data-slot="dialog-title"],
 [data-slot="alert-dialog-title"] {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 500;
   font-synthesis: none;
   min-width: 0;
   overflow-wrap: anywhere;
 }
 h1 {
-  font-size: 52px;
-  line-height: 1.06;
-  letter-spacing: -1.5px;
+  font-size: 72px;
+  line-height: 1;
+  letter-spacing: -0.02em;
 }
 h2 {
   font-size: 32px;
-  line-height: 1.2;
-  letter-spacing: -0.8px;
+  line-height: 40px;
+  letter-spacing: -0.01em;
 }
 h3 {
-  font-size: 26px;
-  line-height: 1.2;
-  letter-spacing: -0.5px;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0;
 }
 body {
   letter-spacing: 0;
@@ -45,8 +45,8 @@ textarea:focus-visible {
   letter-spacing: -1.2px;
 }
 .brand-mark {
-  border: 1px solid var(--foreground);
-  border-radius: 10px;
+  border: 1px solid var(--gui-edge);
+  border-radius: 0;
 }
 header:has([aria-label="Główna nawigacja"]) {
   background: #fff;
@@ -89,7 +89,7 @@ footer {
 .metric-card,
 .visitors-card,
 .success-panel {
-  border-radius: 24px;
+  border-radius: 0;
   background: #fff;
 }
 .prototype-panel h2 {
@@ -98,8 +98,8 @@ footer {
 .prototype-form {
   padding: 28px;
   background: #fff;
-  border: 1px solid var(--foreground);
-  border-radius: 24px;
+  border: 1px solid var(--gui-edge);
+  border-radius: 0;
   width: 100%;
   box-shadow: none;
 }
@@ -115,9 +115,9 @@ footer {
   font-weight: 600;
 }
 .prototype-notice {
-  background: #ffe0f7;
-  border: 1px solid var(--foreground);
-  border-radius: 18px;
+  background: #ececee;
+  border: 1px solid var(--gui-edge);
+  border-radius: 0;
   line-height: 1.6;
 }
 .prototype-error,
@@ -137,8 +137,8 @@ footer {
   padding-block: 24px;
 }
 .workspace-avatar {
-  background: #ffe0f7;
-  border-radius: 10px;
+  background: #ececee;
+  border-radius: 0;
   flex-shrink: 0;
 }
 .main-content {
@@ -149,13 +149,13 @@ footer {
 }
 .page-heading {
   padding-block: 8px 20px;
-  border-bottom: 1px solid #d8d5d1;
+  border-bottom: 1px solid var(--gui-edge);
 }
 .page-heading h1 {
-  font-size: 52px;
+  font-size: 72px;
 }
 .native-select {
-  border: 1px solid var(--foreground);
+  border: 1px solid var(--gui-edge);
 }
 [data-slot="select-trigger"] {
   box-shadow: var(--gui-edge-shadow);
@@ -165,12 +165,12 @@ footer {
   box-shadow: var(--gui-edge-shadow);
 }
 [data-slot="badge"] {
-  box-shadow: inset 0 0 0 1px #d8d5d1;
+  box-shadow: inset 0 0 0 1px #c8d9ef;
   white-space: normal;
 }
 [data-slot="dialog-content"],
 [data-slot="alert-dialog-content"] {
-  border: 1px solid #181818;
+  border: 1px solid var(--gui-edge);
 }
 @media (max-width: 1100px) {
   .home-intro h1 {
@@ -221,7 +221,7 @@ footer {
   align-items: center;
   max-width: 100%;
   padding: 3px 12px;
-  border-radius: 18px;
+  border-radius: 0;
   color: var(--gui-text);
   font-family: var(--font-body);
   font-size: 13px;

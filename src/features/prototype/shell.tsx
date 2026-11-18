@@ -123,7 +123,7 @@ export function Shell() {
         Przejdź do treści
       </a>
       {workspace ? (
-        <div className="app-frame">
+        <div className="app-frame shell-e">
           <div className="mobile-header">
             <Link to="/" className="brand">
               <BrandMark />

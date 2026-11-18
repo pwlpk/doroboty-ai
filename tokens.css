@@ -9,10 +9,10 @@
   --icon-regular-display: inline;
   --icon-bold-display: none;
 
-  --gui-font-brand: "Geist Serif", Georgia, serif;
-  --gui-font-ui: Arial, Helvetica, system-ui, sans-serif;
-  --gui-font-editorial: "Geist Serif", Georgia, serif;
-  --gui-font-data: Arial, Helvetica, system-ui, sans-serif;
+  --gui-font-brand: "Geist", Inter, system-ui, sans-serif;
+  --gui-font-ui: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --gui-font-editorial: "Geist", Inter, system-ui, sans-serif;
+  --gui-font-data: "Space Mono", ui-monospace, Menlo, monospace;
   --font-ui: var(--gui-font-ui);
   --font-brand: var(--gui-font-brand);
   --font-editorial: var(--gui-font-editorial);
@@ -20,9 +20,9 @@
   --weight-ui-regular: 400;
   --weight-ui-medium: 500;
   --weight-ui-heavy: 600;
-  --weight-brand-regular: 400;
-  --weight-brand-medium: 400;
-  --weight-brand-heavy: 400;
+  --weight-brand-regular: 500;
+  --weight-brand-medium: 500;
+  --weight-brand-heavy: 500;
   --weight-editorial-regular: 400;
   --weight-editorial-medium: 500;
   --weight-editorial-heavy: 600;
@@ -70,11 +70,11 @@
   --gui-tracking-xl: 0.02em;
 
   --gui-radius-zero: 0;
-  --gui-radius-xs: 5px;
-  --gui-radius-s: 18px;
-  --gui-radius-m: 24px;
-  --gui-radius-l: 24px;
-  --gui-radius-xl: 24px;
+  --gui-radius-xs: 6px;
+  --gui-radius-s: 6px;
+  --gui-radius-m: 0;
+  --gui-radius-l: 0;
+  --gui-radius-xl: 12px;
   --gui-radius-full: 9999px;
   --radius: var(--gui-radius-s);
 
@@ -82,9 +82,9 @@
   --gui-neutral-1-transparent: #ffffff33;
   --gui-neutral-2: #ffffff;
   --gui-neutral-2-transparent: #fbfbfb33;
-  --gui-neutral-3: #f4f4f0;
+  --gui-neutral-3: #f1f6fd;
   --gui-neutral-3-transparent: #f4f4f433;
-  --gui-neutral-4: #d8d5d1;
+  --gui-neutral-4: #c8d9ef;
   --gui-neutral-4-transparent: #e7e7e733;
   --gui-neutral-5: #cdcdcd;
   --gui-neutral-5-transparent: #cdcdcd33;
@@ -97,7 +97,7 @@
   --gui-neutral-9: #333333;
   --gui-neutral-9-transparent: #33333333;
   --gui-neutral-10: #181818;
-  --gui-color-1: #ff90e8;
+  --gui-color-1: #ececee;
   --gui-color-2: #181818;
   --gui-color-2-transparent: #085e5533;
   --gui-color-3: #ffe45b;
@@ -115,23 +115,23 @@
   --gui-error: #fc032d;
   --gui-neutral-10-transparent: #00000033;
   --gui-backdrop: #18181899;
-  --gui-color-1-transparent: #ffe0f7;
+  --gui-color-1-transparent: #e3edfa;
   --gui-success-transparent: #00906c33;
   --gui-error-transparent: #fc032d33;
 
-  --gui-canvas: #f4f4f0;
+  --gui-canvas: #f1f6fd;
   --gui-surface: var(--gui-neutral-2);
-  --gui-surface-muted: var(--gui-neutral-3);
+  --gui-surface-muted: #e3edfa;
   --gui-text: var(--gui-neutral-10);
-  --gui-text-muted: #5e5a5c;
+  --gui-text-muted: #3f3f46;
   --gui-text-muted-accessible: var(--gui-neutral-8);
-  --gui-edge: #181818;
+  --gui-edge: #c8d9ef;
   --gui-accent: var(--gui-color-1);
   --gui-accent-text: #181818;
   /* Dark labels on pink actions. */
   --gui-accent-text-accessible: var(--gui-neutral-10);
   --gui-danger: var(--gui-error);
-  --gui-focus: #181818;
+  --gui-focus: #3a7fe0;
   --gui-link: var(--gui-color-2);
   --gui-control: #ffffff;
   --gui-control-hover: var(--gui-neutral-4);
@@ -140,16 +140,16 @@
 
   --gui-shadow-none: none;
   --gui-shadow-s: 0 2px 4px 0 #00000000;
-  --gui-shadow-m: inset 0 0 0 1px #181818;
+  --gui-shadow-m: inset 0 0 0 1px var(--gui-edge);
   --gui-shadow-l: 0 16px 48px 0 #00000000;
   /* Visible ink contours; no offset shadows. */
-  --gui-edge-shadow: inset 0 0 0 1px #181818;
+  --gui-edge-shadow: inset 0 0 0 1px var(--gui-edge);
   --gui-divider-top-shadow: inset 0 1px var(--gui-edge);
   --gui-divider-bottom-shadow: inset 0 -1px var(--gui-edge);
   --gui-divider-inline-end-shadow: inset -1px 0 var(--gui-edge);
   --gui-accent-edge-shadow: none;
-  --gui-accent-bar-shadow: inset 4px 0 var(--gui-color-1);
-  --gui-control-shadow: inset 0 0 0 1px #181818;
+  --gui-accent-bar-shadow: inset 3px 0 var(--gui-neutral-10);
+  --gui-control-shadow: inset 0 0 0 1px var(--gui-edge);
   --gui-control-hover-shadow: none;
   --gui-control-focus-shadow: none;
   --gui-control-invalid-shadow: none;
@@ -246,17 +246,17 @@
   /* shadcn semantic bridge */
   --background: var(--gui-canvas);
   --foreground: var(--gui-text);
-  --card: var(--gui-surface);
+  --card: var(--gui-surface-muted);
   --card-foreground: var(--gui-text);
   --popover: var(--gui-neutral-1);
   --popover-foreground: var(--gui-text);
-  --primary: #ff90e8;
-  --primary-foreground: #181818;
+  --primary: #09090b;
+  --primary-foreground: #fafafa;
   --secondary: var(--gui-surface-muted);
   --secondary-foreground: var(--gui-text);
   --muted: var(--gui-surface-muted);
   --muted-foreground: var(--gui-text-muted-accessible);
-  --accent: var(--gui-color-1);
+  --accent: var(--gui-surface-muted);
   --accent-foreground: var(--gui-accent-text);
   --destructive: var(--gui-danger);
   --border: var(--gui-edge);
@@ -271,7 +271,7 @@
   --sidebar-foreground: var(--gui-text);
   --sidebar-primary: var(--gui-neutral-10);
   --sidebar-primary-foreground: var(--gui-neutral-1);
-  --sidebar-accent: var(--gui-color-1);
+  --sidebar-accent: var(--gui-surface-muted);
   --sidebar-accent-foreground: var(--gui-accent-text);
   --sidebar-border: var(--gui-edge);
   --sidebar-ring: var(--gui-focus);
