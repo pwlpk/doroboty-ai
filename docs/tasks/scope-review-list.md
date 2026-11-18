@@ -14,7 +14,7 @@ Give an employer persona (Karolina Wiśniewska, BrightLabs) one job with six app
 - Three variants via `?wersja=`; moderator panel only with `?moderator=1`.
 - Invitations limited to two; confirm enabled only at two; confirmation announced via a live region; action bar repeated after the list.
 - Quotes validated as verbatim substrings by Zod at load and in unit tests.
-- Visual direction E (grid), at Paweł's request on 18.11.2026, scoped to `.scope-page`: warm paper sheet with thin beige cell lines, no shadows, 6px control radius, Geist 500 / Inter / Space Mono stacks, category bar colours (Build orange, Apply blue, Lead green), pink for AI content, black/grey buttons. Source: the direction-E page `strona-e/template.html` from the project library; the `doroboty-grid-ui` skill itself was not available in this session. The surrounding app shell keeps Poster People. Fonts are not loaded (no remote runtime dependencies), so system fallbacks render.
+- Visual direction E (grid), at Paweł's request on 18.11.2026, scoped to `.scope-page`: warm paper sheet with thin beige cell lines, no shadows, 6px control radius, Geist 500 / Inter / Space Mono stacks, category bar colours (Build orange, Apply blue, Lead green), pink for AI content, black/grey buttons. Source: the direction-E page `strona-e/template.html` from the project library; the `doroboty-grid-ui` skill itself was not available in this session. The surrounding app shell keeps Poster People. Fonts: local Geist 500, Inter 400/500 and Space Mono 400 woff2 files (SIL OFL, Fontsource 5.3.0) in `src/app/fonts/`, declared in `direction-e.css`; no npm dependency and no remote request.
 - No change to the persisted state schema, import/export or other flows.
 
 ## Data
@@ -32,3 +32,7 @@ Give an employer persona (Karolina Wiśniewska, BrightLabs) one job with six app
 ## Workspace shell in direction E (18.11.2026)
 
 At Paweł's request the signed-in workspace shell (sidebar, top bar, mobile header and menu) uses direction E via `.shell-e` in `src/app/direction-e.css`, which also holds the shared `--e-*` tokens. The robot BrandMark is replaced in the shell by the direction-E 2x2 category mark; the public header/footer and page content outside `.scope-page` keep Poster People. Checked manually: employer and candidate shells at 1280×900, mobile menu at 375×812 (no horizontal scroll); format, lint, types, 31 unit tests, design-system check, packet check and build pass. E2E not run (no Playwright Chromium).
+
+## Local fonts (18.11.2026)
+
+Added at Paweł's request. Verified in the desktop app's browser: all seven faces report `loaded`; Polish letters (ą ć ę ł ń ó ś ź ż and capitals) render from Geist, not a fallback; no horizontal scroll at 375 px. Format, lint, types, 31 unit tests, design-system check, packet check and build pass.
