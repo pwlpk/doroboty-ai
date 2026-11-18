@@ -56,7 +56,7 @@ function SummaryPart({
                 „{item.quote}”<span className="sr-only"> — pokaż w oryginale</span>
               </button>
             ) : (
-              <span className="scope-no-quote">Bez cytatu: kandydat tego nie opisał.</span>
+              <span className="scope-no-quote">Bez cytatu: kandydat tego nie opisał</span>
             )}
           </li>
         ))}
@@ -97,10 +97,13 @@ function CandidateCard({
     setMark({ quote: item.quote!, source: item.source ?? "raw" });
     onOriginal();
     onQuote();
-    requestAnimationFrame(() => {
-      originalRef.current?.focus({ preventScroll: true });
-      originalRef.current?.scrollIntoView({ block: "center" });
-    });
+    // Wait for the original region to render and lay out before moving focus.
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() => {
+        originalRef.current?.focus({ preventScroll: true });
+        originalRef.current?.scrollIntoView({ block: "nearest" });
+      }),
+    );
   }
 
   return (
@@ -135,11 +138,13 @@ function CandidateCard({
           className="scope-summary"
           aria-label={`Podsumowanie AI: ${application.candidateName}`}
         >
-          <h3>Co kandydat zrobił sam</h3>
-          <p className="record-caption">
-            Podsumowanie AI z odpowiedzi i portfolio. Każde zdanie ma cytat; kliknij go, by
-            sprawdzić w oryginale.
-          </p>
+          <div className="scope-summary-head">
+            <span className="scope-chip scope-chip-ai">Podsumowanie AI</span>
+            <h3>Co kandydat zrobił sam</h3>
+            <p className="scope-caption">
+              Z odpowiedzi i portfolio. Każde zdanie ma cytat; kliknij go, by sprawdzić w oryginale.
+            </p>
+          </div>
           <div className="scope-summary-grid">
             <SummaryPart title="Zrobił sam" items={application.summary.own} onQuote={showQuote} />
             <SummaryPart
@@ -157,8 +162,8 @@ function CandidateCard({
       )}
 
       <section className="scope-answer">
-        <h3>Odpowiedź kandydata</h3>
-        <p className="record-caption">
+        <span className="scope-chip">Odpowiedź kandydata</span>
+        <p className="scope-caption">
           {variant === "obecna"
             ? "Wersja poprawiona przez asystenta."
             : "Wersja poprawiona przez asystenta, z zachowanymi zdaniami kandydata o zakresie."}
@@ -169,8 +174,8 @@ function CandidateCard({
       <div className="scope-card-actions">
         {variant !== "obecna" && (
           <Button
-            variant="outline"
-            size="sm"
+            variant="secondary"
+            className="scope-btn scope-btn-alt"
             aria-expanded={open}
             aria-controls={regionId}
             onClick={() => {
@@ -183,8 +188,8 @@ function CandidateCard({
           </Button>
         )}
         <Button
-          variant={invited ? "default" : "outline"}
-          size="sm"
+          variant="default"
+          className={invited ? "scope-btn scope-btn-on" : "scope-btn"}
           aria-pressed={invited}
           disabled={locked || (!invited && inviteDisabled)}
           onClick={onInvite}
@@ -202,14 +207,14 @@ function CandidateCard({
           role="region"
           aria-label={`Oryginał: ${application.candidateName}`}
         >
-          <h4>Oryginalna odpowiedź, przed poprawkami asystenta</h4>
+          <span className="scope-chip">Oryginał, przed poprawkami asystenta</span>
           <p>
             <Marked
               text={application.originalAnswer}
               quote={mark?.source === "raw" ? mark.quote : null}
             />
           </p>
-          <h4>Portfolio</h4>
+          <span className="scope-chip">Portfolio</span>
           <p>
             <Marked
               text={application.portfolio}
@@ -240,16 +245,16 @@ function ModeratorPanel({
   const { hits, total } = scoreSelection(selected);
   return (
     <aside className="scope-moderator" aria-label="Panel moderatora">
-      <h2>Panel moderatora</h2>
-      <p className="record-caption">
+      <span className="scope-chip">Panel moderatora</span>
+      <p className="scope-caption">
         Widoczny tylko z parametrem ?moderator=1. Uczestnik testu go nie widzi.
       </p>
       <div className="scope-variant" role="group" aria-label="Wersja listy">
         {variants.map((v) => (
           <Button
             key={v}
-            size="sm"
-            variant={v === variant ? "default" : "outline"}
+            variant="secondary"
+            className={v === variant ? "scope-btn scope-btn-on" : "scope-btn scope-btn-alt"}
             aria-pressed={v === variant}
             onClick={() => setVariant(v)}
           >
@@ -274,7 +279,7 @@ function ModeratorPanel({
           <dd>{log.quotes}</dd>
         </div>
       </dl>
-      <Button variant="outline" size="sm" onClick={onReset}>
+      <Button variant="secondary" className="scope-btn scope-btn-alt" onClick={onReset}>
         Wyczyść sesję
       </Button>
     </aside>
@@ -296,6 +301,7 @@ export function ScopeReviewPage() {
 
   if (jobId !== scenario.jobId || !job || job.companyId !== person.companyId) return <NotFound />;
 
+  const company = state.companies.find((x) => x.id === job.companyId);
   const names = (ids: string[]) =>
     ids.map((id) => scenario.applications.find((a) => a.id === id)!.candidateName).join(" i ");
   const reset = () => {
@@ -314,11 +320,19 @@ export function ScopeReviewPage() {
         {confirmed && " W tym scenariuszu zaproszenia nie są wysyłane do kandydatów."}
       </p>
       {confirmed ? (
-        <Button variant="outline" onClick={() => setConfirmed(false)}>
+        <Button
+          variant="secondary"
+          className="scope-btn scope-btn-alt"
+          onClick={() => setConfirmed(false)}
+        >
           Zmień wybór
         </Button>
       ) : (
-        <Button disabled={selected.length !== INVITE_LIMIT} onClick={() => setConfirmed(true)}>
+        <Button
+          className="scope-btn"
+          disabled={selected.length !== INVITE_LIMIT}
+          onClick={() => setConfirmed(true)}
+        >
           Zatwierdź wybór
         </Button>
       )}
@@ -328,11 +342,16 @@ export function ScopeReviewPage() {
   return (
     <div className="scope-page">
       <BackLink to="/app/kandydaci">Wróć do kandydatów</BackLink>
-      <PageTitle>Kandydaci: {job.title}</PageTitle>
-      <p className="scope-lead">
-        6 aplikacji na ogłoszenie. Wybierz {INVITE_LIMIT} osoby, które zaprosisz na pierwszą
-        rozmowę.
-      </p>
+      <div className="scope-head">
+        <span className="scope-chip" data-cat={job.category}>
+          {job.category} · {company?.name}
+        </span>
+        <PageTitle>Kandydaci: {job.title}</PageTitle>
+        <p className="scope-lead">
+          6 aplikacji na ogłoszenie. Wybierz {INVITE_LIMIT} osoby, które zaprosisz na pierwszą
+          rozmowę.
+        </p>
+      </div>
 
       {moderator && (
         <ModeratorPanel
