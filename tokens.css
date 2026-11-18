@@ -82,9 +82,9 @@
   --gui-neutral-1-transparent: #ffffff33;
   --gui-neutral-2: #ffffff;
   --gui-neutral-2-transparent: #fbfbfb33;
-  --gui-neutral-3: #f4f4f0;
+  --gui-neutral-3: #f1f6fd;
   --gui-neutral-3-transparent: #f4f4f433;
-  --gui-neutral-4: #d8d5d1;
+  --gui-neutral-4: #c8d9ef;
   --gui-neutral-4-transparent: #e7e7e733;
   --gui-neutral-5: #cdcdcd;
   --gui-neutral-5-transparent: #cdcdcd33;
@@ -115,17 +115,17 @@
   --gui-error: #fc032d;
   --gui-neutral-10-transparent: #00000033;
   --gui-backdrop: #18181899;
-  --gui-color-1-transparent: #f5f4ef;
+  --gui-color-1-transparent: #e3edfa;
   --gui-success-transparent: #00906c33;
   --gui-error-transparent: #fc032d33;
 
-  --gui-canvas: #fbfbf8;
+  --gui-canvas: #f1f6fd;
   --gui-surface: var(--gui-neutral-2);
-  --gui-surface-muted: #f5f4ef;
+  --gui-surface-muted: #e3edfa;
   --gui-text: var(--gui-neutral-10);
   --gui-text-muted: #3f3f46;
   --gui-text-muted-accessible: var(--gui-neutral-8);
-  --gui-edge: #e4e3de;
+  --gui-edge: #c8d9ef;
   --gui-accent: var(--gui-color-1);
   --gui-accent-text: #181818;
   /* Dark labels on pink actions. */

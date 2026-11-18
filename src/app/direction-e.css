@@ -1,5 +1,5 @@
-/* Design direction E ("grid"): shared tokens plus the signed-in workspace shell
-   (sidebar, top bar, mobile header). Warm paper, thin beige cell lines, no
+/* Design direction E ("grid"), blue paper variant (Paweł, 18.11.2026): shared tokens plus the signed-in workspace shell
+   (sidebar, top bar, mobile header). Light blue paper, thin blue cell lines, no
    shadows or rounded nav pills, Geist 500 / Inter / Space Mono stacks, category
    colours Build/Apply/Lead, pink for AI content. Page content outside
    .scope-page keeps its current Poster People styling. */
@@ -76,9 +76,9 @@
 }
 
 :root {
-  --e-paper: #fbfbf8;
-  --e-cell: #f5f4ef;
-  --e-line: #e4e3de;
+  --e-paper: #f1f6fd;
+  --e-cell: #e3edfa;
+  --e-line: #c8d9ef;
   --e-ink: #18181b;
   --e-ink-2: #3f3f46;
   --e-ink-3: #71717a;
@@ -531,7 +531,7 @@ footer {
   box-shadow: none;
 }
 .pp-job-card.e-card:hover {
-  background: #f0efe8;
+  background: #d8e6f8;
 }
 .e-mosaic {
   --c: var(--e-build);

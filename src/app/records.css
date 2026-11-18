@@ -146,7 +146,7 @@
   bottom: -7px;
   left: 4px;
   width: 1px;
-  background: #d8d5d1;
+  background: #c8d9ef;
   content: "";
 }
 .process-timeline li:last-child::after {

@@ -1,16 +1,16 @@
 /* Host-owned namespaced adaptation of Poster People 1.0.0; see immutable kit provenance. */
 :root {
   color-scheme: light;
-  --pp-paper: #fbfbf8;
-  --pp-surface: #f5f4ef;
+  --pp-paper: #f1f6fd;
+  --pp-surface: #e3edfa;
   --pp-ink: #181818;
   --pp-muted: #3f3f46;
-  --pp-line: #e4e3de;
+  --pp-line: #c8d9ef;
   --pp-action: #09090b;
   --pp-action-hover: #2a2a2e;
   --pp-fact: #ececee;
   --pp-yellow: #ffe45b;
-  --pp-surface-hover: #f0efe8;
+  --pp-surface-hover: #d8e6f8;
   --pp-radius: 0;
   --pp-radius-small: 6px;
   --pp-radius-large: 0;

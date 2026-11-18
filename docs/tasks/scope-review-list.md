@@ -46,3 +46,7 @@ Changes: host tokens (`tokens.css`) and marketplace `--pp-*` tokens switched to 
 Not yet matching the skill: offer page keeps top section tabs instead of the three-column side nav; no dark "Dla firm" section or pricing page exists in the app; company profile has no side nav. E2E browser tests were not run (no Playwright Chromium) and several assert Poster People CSS values (font sizes of `.pp-job-title`, `.pp-salary-tag`), so they need updating when a browser is available.
 
 Checked: format, lint, types, 31 unit tests, design-system check, packet check, build; desktop 1280 and phone 375 views of home, listing, offer, company, recruiting detail, job editor and the scope list, no horizontal scroll.
+
+## Blue paper variant (18.11.2026)
+
+At Paweł's request the beige neutrals were replaced by light blue: paper #f1f6fd, cell #e3edfa, grid line #c8d9ef, cell hover #d8e6f8. Ink, buttons, category and AI colours are unchanged. This deviates from the skill's measured beige values by Paweł's decision.
