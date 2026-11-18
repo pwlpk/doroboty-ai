@@ -1,0 +1,314 @@
+{
+  "jobId": "20000000-0000-4000-8000-000000000001",
+  "sourcePublicationId": "pub-003697",
+  "sourceNote": "Teksty aplikacji z eksportu (VI 2026, ogłoszenie pub-003697). Imiona, nagłówki i podsumowania są przygotowane do scenariusza.",
+  "applications": [
+    {
+      "id": "scope-a",
+      "sourceApplicationId": "app-039530",
+      "candidateName": "Piotr Lewandowski",
+      "headline": "Kierownik projektów AI",
+      "seniority": "mid",
+      "score": 69,
+      "assistantAnswer": "Moje doświadczenie w projektach AI odpowiada zadaniom opisanym w ogłoszeniu dla obszaru: dokumenty operacyjne. Uczestniczyłem w przygotowaniu i doskonaleniu rozwiązania, uwzględniając potrzeby użytkowników oraz ograniczenia danych. Potrafię współpracować z osobami technicznymi i biznesowymi, porządkować zadania i omawiać kolejne kroki. Znam znaczenie sprawdzania efektów i odpowiedzialności za uzgodniony zakres. Chętnie przedstawię konkretny przykład oraz sposób pracy zespołu. Interesuje mnie możliwość dalszego rozwoju i pracy przy wdrożeniu odpowiadającym rzeczywistym potrzebom organizacji. Warunki rozpoczęcia współpracy oraz dostępność materiałów projektowych chciałbym uzgodnić podczas rozmowy.",
+      "answerWithScope": "Moje doświadczenie w projektach AI odpowiada zadaniom opisanym w ogłoszeniu dla obszaru: dokumenty operacyjne. Uczestniczyłem w przygotowaniu i doskonaleniu rozwiązania, uwzględniając potrzeby użytkowników oraz ograniczenia danych. Potrafię współpracować z osobami technicznymi i biznesowymi, porządkować zadania i omawiać kolejne kroki. Znam znaczenie sprawdzania efektów i odpowiedzialności za uzgodniony zakres. Chętnie przedstawię konkretny przykład oraz sposób pracy zespołu. Interesuje mnie możliwość dalszego rozwoju i pracy przy wdrożeniu odpowiadającym rzeczywistym potrzebom organizacji. Warunki rozpoczęcia współpracy oraz dostępność materiałów projektowych chciałbym uzgodnić podczas rozmowy. Uzgadniałem priorytety i kryteria decyzji ze sponsorem. Budżet zatwierdzał zarząd, a ja odpowiadałem za kolejność prac.",
+      "originalAnswer": "Chodzi o projekt z obszaru: dokumenty operacyjne. Uzgadniałem priorytety i kryteria decyzji ze sponsorem. Budżet zatwierdzał zarząd, a ja odpowiadałem za kolejność prac. Mogę omówić przykład i rolę pozostałych osób. Chcę znać pierwszy projekt oraz dostęp do danych. Zakres wdrożenia był szerszy niż moja praca. Materiały i termin rozpoczęcia musimy uzgodnić.",
+      "portfolio": "Materiały: notatka o mandacie, decyzjach i kompromisach. Część danych jest prywatna. Mam wersję z usuniętymi nazwami klientów. Link: https://projekty.example/cand-006197/opis.",
+      "summary": {
+        "own": [
+          {
+            "text": "Ustalał ze sponsorem priorytety i kryteria decyzji.",
+            "quote": "Uzgadniałem priorytety i kryteria decyzji ze sponsorem.",
+            "source": "raw"
+          },
+          {
+            "text": "Odpowiadał za kolejność prac.",
+            "quote": "a ja odpowiadałem za kolejność prac",
+            "source": "raw"
+          }
+        ],
+        "others": [
+          {
+            "text": "Budżet zatwierdzał zarząd.",
+            "quote": "Budżet zatwierdzał zarząd",
+            "source": "raw"
+          },
+          {
+            "text": "Wdrożenie obejmowało więcej niż jego część pracy.",
+            "quote": "Zakres wdrożenia był szerszy niż moja praca.",
+            "source": "raw"
+          }
+        ],
+        "unknown": [
+          {
+            "text": "Efekty projektu. Odpowiedź i portfolio ich nie podają."
+          },
+          {
+            "text": "Rola pozostałych osób w projekcie. Kandydat sam proponuje o niej opowiedzieć.",
+            "quote": "Mogę omówić przykład i rolę pozostałych osób.",
+            "source": "raw"
+          },
+          {
+            "text": "Materiały są częściowo prywatne; kandydat ma wersję bez nazw klientów.",
+            "quote": "Mam wersję z usuniętymi nazwami klientów.",
+            "source": "portfolio"
+          }
+        ]
+      },
+      "outcome": {
+        "decision": "continue",
+        "scopeClass": "własny"
+      }
+    },
+    {
+      "id": "scope-b",
+      "sourceApplicationId": "app-044125",
+      "candidateName": "Marcin Wójcik",
+      "headline": "Product Owner · automatyzacja",
+      "seniority": "mid",
+      "score": 80,
+      "assistantAnswer": "Moje doświadczenie w projektach AI odpowiada zadaniom opisanym w ogłoszeniu dla obszaru: dokumenty operacyjne. Uczestniczyłem w przygotowaniu i doskonaleniu rozwiązania, uwzględniając potrzeby użytkowników oraz ograniczenia danych. Potrafię współpracować z osobami technicznymi i biznesowymi, porządkować zadania i omawiać kolejne kroki. Znam znaczenie sprawdzania efektów i odpowiedzialności za uzgodniony zakres. Chętnie przedstawię konkretny przykład oraz sposób pracy zespołu. Interesuje mnie możliwość dalszego rozwoju i pracy przy wdrożeniu odpowiadającym rzeczywistym potrzebom organizacji. Warunki rozpoczęcia współpracy oraz dostępność materiałów projektowych chciałbym uzgodnić podczas rozmowy.",
+      "answerWithScope": "Moje doświadczenie w projektach AI odpowiada zadaniom opisanym w ogłoszeniu dla obszaru: dokumenty operacyjne. Uczestniczyłem w przygotowaniu i doskonaleniu rozwiązania, uwzględniając potrzeby użytkowników oraz ograniczenia danych. Potrafię współpracować z osobami technicznymi i biznesowymi, porządkować zadania i omawiać kolejne kroki. Znam znaczenie sprawdzania efektów i odpowiedzialności za uzgodniony zakres. Chętnie przedstawię konkretny przykład oraz sposób pracy zespołu. Interesuje mnie możliwość dalszego rozwoju i pracy przy wdrożeniu odpowiadającym rzeczywistym potrzebom organizacji. Warunki rozpoczęcia współpracy oraz dostępność materiałów projektowych chciałbym uzgodnić podczas rozmowy. Prowadziłem uzgodnienia między właścicielami zespołów i decyzję o ograniczeniu zakresu. Sponsor potwierdza odpowiedzialność.",
+      "originalAnswer": "Chodzi o projekt z obszaru: dokumenty operacyjne. Prowadziłem uzgodnienia między właścicielami zespołów i decyzję o ograniczeniu zakresu. Sponsor potwierdza odpowiedzialność. Mogę omówić przykład i rolę pozostałych osób. Chcę znać pierwszy projekt oraz dostęp do danych. Zakres wdrożenia był szerszy niż moja praca. Materiały i termin rozpoczęcia musimy uzgodnić.",
+      "portfolio": "Materiały: notatka o mandacie, decyzjach i kompromisach. Za zgodą zespołu mogę udostępnić fragment materiału. Nie wysyłam danych klientów. Link: https://projekty.example/cand-001232/opis.",
+      "summary": {
+        "own": [
+          {
+            "text": "Prowadził uzgodnienia między właścicielami zespołów.",
+            "quote": "Prowadziłem uzgodnienia między właścicielami zespołów",
+            "source": "raw"
+          },
+          {
+            "text": "Podjął decyzję o ograniczeniu zakresu.",
+            "quote": "decyzję o ograniczeniu zakresu",
+            "source": "raw"
+          }
+        ],
+        "others": [
+          {
+            "text": "Wdrożenie obejmowało więcej niż jego część pracy.",
+            "quote": "Zakres wdrożenia był szerszy niż moja praca.",
+            "source": "raw"
+          }
+        ],
+        "unknown": [
+          {
+            "text": "Odpowiedzialność ma potwierdzać sponsor. Nie wiadomo, czy można się z nim skontaktować.",
+            "quote": "Sponsor potwierdza odpowiedzialność.",
+            "source": "raw"
+          },
+          {
+            "text": "Efekty projektu. Odpowiedź i portfolio ich nie podają."
+          },
+          {
+            "text": "Fragment materiału tylko za zgodą zespołu.",
+            "quote": "Za zgodą zespołu mogę udostępnić fragment materiału.",
+            "source": "portfolio"
+          }
+        ]
+      },
+      "outcome": {
+        "decision": "reject",
+        "scopeClass": "własny"
+      }
+    },
+    {
+      "id": "scope-c",
+      "sourceApplicationId": "app-043773",
+      "candidateName": "Krzysztof Kamiński",
+      "headline": "Senior Product Manager",
+      "seniority": "senior",
+      "score": 80,
+      "assistantAnswer": "Moje doświadczenie w projektach AI odpowiada zadaniom opisanym w ogłoszeniu dla obszaru: planowanie dostaw. Uczestniczyłem w przygotowaniu i doskonaleniu rozwiązania, uwzględniając potrzeby użytkowników oraz ograniczenia danych. Potrafię współpracować z osobami technicznymi i biznesowymi, porządkować zadania i omawiać kolejne kroki. Znam znaczenie sprawdzania efektów i odpowiedzialności za uzgodniony zakres. Chętnie przedstawię konkretny przykład oraz sposób pracy zespołu. Interesuje mnie możliwość dalszego rozwoju i pracy przy wdrożeniu odpowiadającym rzeczywistym potrzebom organizacji. Warunki rozpoczęcia współpracy oraz dostępność materiałów projektowych chciałbym uzgodnić podczas rozmowy.",
+      "answerWithScope": "Moje doświadczenie w projektach AI odpowiada zadaniom opisanym w ogłoszeniu dla obszaru: planowanie dostaw. Uczestniczyłem w przygotowaniu i doskonaleniu rozwiązania, uwzględniając potrzeby użytkowników oraz ograniczenia danych. Potrafię współpracować z osobami technicznymi i biznesowymi, porządkować zadania i omawiać kolejne kroki. Znam znaczenie sprawdzania efektów i odpowiedzialności za uzgodniony zakres. Chętnie przedstawię konkretny przykład oraz sposób pracy zespołu. Interesuje mnie możliwość dalszego rozwoju i pracy przy wdrożeniu odpowiadającym rzeczywistym potrzebom organizacji. Warunki rozpoczęcia współpracy oraz dostępność materiałów projektowych chciałbym uzgodnić podczas rozmowy. Przygotowywałem materiały do spotkań. Priorytety i budżet ustalał dyrektor.",
+      "originalAnswer": "Chodzi o proejkt z obszaru: planowanie dostaw. Przygotowywałem materiały do spotkań. Priorytety i budżet ustalał dyrektor. Mogę omówić przykład i rolę pozostałych osób. Chcę znać pierwszy projekt oraz dostęp do danych. Zakres wdrożenia był szerszy niż moja praca. Materiały i termin rozpoczęcia musimy uzgodnić.",
+      "portfolio": "Materiały: materiały spotkania i przegląd narzędzi. Za zgodą zespołu mogę udostępnić fragment materiału. Nie wysyłam danych klientów. Link: https://projekty.example/cand-007490/opis.",
+      "summary": {
+        "own": [
+          {
+            "text": "Przygotowywał materiały do spotkań.",
+            "quote": "Przygotowywałem materiały do spotkań.",
+            "source": "raw"
+          }
+        ],
+        "others": [
+          {
+            "text": "Priorytety i budżet ustalał dyrektor.",
+            "quote": "Priorytety i budżet ustalał dyrektor.",
+            "source": "raw"
+          },
+          {
+            "text": "Wdrożenie obejmowało więcej niż jego część pracy.",
+            "quote": "Zakres wdrożenia był szerszy niż moja praca.",
+            "source": "raw"
+          }
+        ],
+        "unknown": [
+          {
+            "text": "Czy podejmował w projekcie jakieś decyzje. Odpowiedź tego nie opisuje."
+          },
+          {
+            "text": "Rola pozostałych osób w projekcie. Kandydat sam proponuje o niej opowiedzieć.",
+            "quote": "Mogę omówić przykład i rolę pozostałych osób.",
+            "source": "raw"
+          }
+        ]
+      },
+      "outcome": {
+        "decision": "reject",
+        "scopeClass": "ograniczona"
+      }
+    },
+    {
+      "id": "scope-d",
+      "sourceApplicationId": "app-044931",
+      "candidateName": "Jakub Dąbrowski",
+      "headline": "Senior Product Manager · AI",
+      "seniority": "senior",
+      "score": 93,
+      "assistantAnswer": "Moje doświadczenie w projektach AI odpowiada zadaniom opisanym w ogłoszeniu dla obszaru: obsługa zgłoszeń. Uczestniczyłem w przygotowaniu i doskonaleniu rozwiązania, uwzględniając potrzeby użytkowników oraz ograniczenia danych. Potrafię współpracować z osobami technicznymi i biznesowymi, porządkować zadania i omawiać kolejne kroki. Znam znaczenie sprawdzania efektów i odpowiedzialności za uzgodniony zakres. Chętnie przedstawię konkretny przykład oraz sposób pracy zespołu. Interesuje mnie możliwość dalszego rozwoju i pracy przy wdrożeniu odpowiadającym rzeczywistym potrzebom organizacji. Warunki rozpoczęcia współpracy oraz dostępność materiałów projektowych chciałbym uzgodnić podczas rozmowy.",
+      "answerWithScope": "Moje doświadczenie w projektach AI odpowiada zadaniom opisanym w ogłoszeniu dla obszaru: obsługa zgłoszeń. Uczestniczyłem w przygotowaniu i doskonaleniu rozwiązania, uwzględniając potrzeby użytkowników oraz ograniczenia danych. Potrafię współpracować z osobami technicznymi i biznesowymi, porządkować zadania i omawiać kolejne kroki. Znam znaczenie sprawdzania efektów i odpowiedzialności za uzgodniony zakres. Chętnie przedstawię konkretny przykład oraz sposób pracy zespołu. Interesuje mnie możliwość dalszego rozwoju i pracy przy wdrożeniu odpowiadającym rzeczywistym potrzebom organizacji. Warunki rozpoczęcia współpracy oraz dostępność materiałów projektowych chciałbym uzgodnić podczas rozmowy. Prowadziłem prezentację planu. Zakres odpowiedzialności i decyzje budżetowe należały do innej osoby.",
+      "originalAnswer": "Chodzi o projekt z obszaru: obsługa zgłoszeń. Prowadziłem prezentację planu. Zakres odpowiedzialności i decyzje budżetowe należały do innej osoby. Mogę omówić przykład i rolę pozostałych osób. Chcę znać pierwszy projekt oraz dostęp do danych. Zakres wdrożenia był szerszy niż moja praca. Materiały i termin rozpoczęcia musimy uzgodnić.",
+      "portfolio": "Materiały: materiały spotkania i przegląd narzędzi. Za zgodą zespołu mogę udostępnić fragment materiału. Nie wysyłam danych klientów. Link: https://projekty.example/cand-001796/opis.",
+      "summary": {
+        "own": [
+          {
+            "text": "Prowadził prezentację planu.",
+            "quote": "Prowadziłem prezentację planu.",
+            "source": "raw"
+          }
+        ],
+        "others": [
+          {
+            "text": "Zakresem odpowiedzialności i budżetem decydowała inna osoba.",
+            "quote": "Zakres odpowiedzialności i decyzje budżetowe należały do innej osoby.",
+            "source": "raw"
+          },
+          {
+            "text": "Wdrożenie obejmowało więcej niż jego część pracy.",
+            "quote": "Zakres wdrożenia był szerszy niż moja praca.",
+            "source": "raw"
+          }
+        ],
+        "unknown": [
+          {
+            "text": "Kto przygotował plan, który kandydat prezentował."
+          },
+          {
+            "text": "Rola pozostałych osób w projekcie. Kandydat sam proponuje o niej opowiedzieć.",
+            "quote": "Mogę omówić przykład i rolę pozostałych osób.",
+            "source": "raw"
+          }
+        ]
+      },
+      "outcome": {
+        "decision": "reject",
+        "scopeClass": "ograniczona"
+      }
+    },
+    {
+      "id": "scope-e",
+      "sourceApplicationId": "app-042460",
+      "candidateName": "Michał Szymański",
+      "headline": "Senior Product Manager",
+      "seniority": "senior",
+      "score": 77,
+      "assistantAnswer": "W dotychczasowych projektach rozwijałem umiejętności potrzebne do wdrożeń AI, w tym w obszarze: dokumenty operacyjne. Uczestniczyłem w przygotowaniu i doskonaleniu rozwiązania, uwzględniając potrzeby użytkowników oraz ograniczenia danych. Potrafię współpracować z osobami technicznymi i biznesowymi, porządkować zadania i omawiać kolejne kroki. Znam znaczenie sprawdzania efektów i odpowiedzialności za uzgodniony zakres. Chętnie przedstawię konkretny przykład oraz sposób pracy zespołu. Interesuje mnie możliwość dalszego rozwoju i pracy przy wdrożeniu odpowiadającym rzeczywistym potrzebom organizacji. Warunki rozpoczęcia współpracy oraz dostępność materiałów projektowych chciałbym uzgodnić podczas rozmowy.",
+      "answerWithScope": "W dotychczasowych projektach rozwijałem umiejętności potrzebne do wdrożeń AI, w tym w obszarze: dokumenty operacyjne. Uczestniczyłem w przygotowaniu i doskonaleniu rozwiązania, uwzględniając potrzeby użytkowników oraz ograniczenia danych. Potrafię współpracować z osobami technicznymi i biznesowymi, porządkować zadania i omawiać kolejne kroki. Znam znaczenie sprawdzania efektów i odpowiedzialności za uzgodniony zakres. Chętnie przedstawię konkretny przykład oraz sposób pracy zespołu. Interesuje mnie możliwość dalszego rozwoju i pracy przy wdrożeniu odpowiadającym rzeczywistym potrzebom organizacji. Warunki rozpoczęcia współpracy oraz dostępność materiałów projektowych chciałbym uzgodnić podczas rozmowy. Przygotowywałem materiały do spotkań. Priorytety i budżet ustalał dyrektor.",
+      "originalAnswer": "Chodzi o projekt z obszaru: dokumenty operacyjne. Przygotowywałem materiały do spotkań. Priorytety i budżet ustalał dyrektor. Mogę omówić przykład i rolę pozostałych osób. Chcę znać pierwszy projekt oraz dostęp do danych. Zakres wdrożenia był szerszy niż moja praca. Materiały i termin rozpoczęcia musimy uzgodnić.",
+      "portfolio": "Materiały: materiały spotkania i przegląd narzędzi. Część danych jest prywatna. Mam wersję z usuniętymi nazwami klientów. Link: https://projekty.example/cand-007574/opis.",
+      "summary": {
+        "own": [
+          {
+            "text": "Przygotowywał materiały do spotkań.",
+            "quote": "Przygotowywałem materiały do spotkań.",
+            "source": "raw"
+          }
+        ],
+        "others": [
+          {
+            "text": "Priorytety i budżet ustalał dyrektor.",
+            "quote": "Priorytety i budżet ustalał dyrektor.",
+            "source": "raw"
+          },
+          {
+            "text": "Wdrożenie obejmowało więcej niż jego część pracy.",
+            "quote": "Zakres wdrożenia był szerszy niż moja praca.",
+            "source": "raw"
+          }
+        ],
+        "unknown": [
+          {
+            "text": "Czy podejmował w projekcie jakieś decyzje. Odpowiedź tego nie opisuje."
+          },
+          {
+            "text": "Rola pozostałych osób w projekcie. Kandydat sam proponuje o niej opowiedzieć.",
+            "quote": "Mogę omówić przykład i rolę pozostałych osób.",
+            "source": "raw"
+          }
+        ]
+      },
+      "outcome": {
+        "decision": "reject",
+        "scopeClass": "ograniczona"
+      }
+    },
+    {
+      "id": "scope-f",
+      "sourceApplicationId": "app-042491",
+      "candidateName": "Adam Kaczmarek",
+      "headline": "Senior Product Lead",
+      "seniority": "senior",
+      "score": 77,
+      "assistantAnswer": "W dotychczasowych projektach rozwijałem umiejętności potrzebne do wdrożeń AI, w tym w obszarze: wiedza zespołu. Uczestniczyłem w przygotowaniu i doskonaleniu rozwiązania, uwzględniając potrzeby użytkowników oraz ograniczenia danych. Potrafię współpracować z osobami technicznymi i biznesowymi, porządkować zadania i omawiać kolejne kroki. Znam znaczenie sprawdzania efektów i odpowiedzialności za uzgodniony zakres. Chętnie przedstawię konkretny przykład oraz sposób pracy zespołu. Interesuje mnie możliwość dalszego rozwoju i pracy przy wdrożeniu odpowiadającym rzeczywistym potrzebom organizacji. Warunki rozpoczęcia współpracy oraz dostępność materiałów projektowych chciałbym uzgodnić podczas rozmowy.",
+      "answerWithScope": "W dotychczasowych projektach rozwijałem umiejętności potrzebne do wdrożeń AI, w tym w obszarze: wiedza zespołu. Uczestniczyłem w przygotowaniu i doskonaleniu rozwiązania, uwzględniając potrzeby użytkowników oraz ograniczenia danych. Potrafię współpracować z osobami technicznymi i biznesowymi, porządkować zadania i omawiać kolejne kroki. Znam znaczenie sprawdzania efektów i odpowiedzialności za uzgodniony zakres. Chętnie przedstawię konkretny przykład oraz sposób pracy zespołu. Interesuje mnie możliwość dalszego rozwoju i pracy przy wdrożeniu odpowiadającym rzeczywistym potrzebom organizacji. Warunki rozpoczęcia współpracy oraz dostępność materiałów projektowych chciałbym uzgodnić podczas rozmowy. Uzgadniałem priorytety i kryteria decyzji ze sponsorem. Budżet zatwierdzał zarząd, a ja odpowiadałem za kolejność prac.",
+      "originalAnswer": "Chodzi o projekt z obszaru: wiedza zespołu. Uzgadniałem priorytety i kryteria decyzji ze sponsorem. Budżet zatwierdzał zarząd, a ja odpowiadałem za kolejność prac. Mogę omówić przykład i rolę pozostałych osób. Chcę znać pierwszy projekt oraz dostęp do danych. Zakres wdrożenia był szerszy niż moja praca. Materiały i termin rozpoczęcia musimy uzgodnić.",
+      "portfolio": "Materiały: notatka o mandacie, decyzjach i kompromisach. Publiczny opis nie zawiera wszystkich szczegółów. Mogę omówić zakres na rozmowie. Link: https://projekty.example/cand-003248/opis.",
+      "summary": {
+        "own": [
+          {
+            "text": "Ustalał ze sponsorem priorytety i kryteria decyzji.",
+            "quote": "Uzgadniałem priorytety i kryteria decyzji ze sponsorem.",
+            "source": "raw"
+          },
+          {
+            "text": "Odpowiadał za kolejność prac.",
+            "quote": "a ja odpowiadałem za kolejność prac",
+            "source": "raw"
+          }
+        ],
+        "others": [
+          {
+            "text": "Budżet zatwierdzał zarząd.",
+            "quote": "Budżet zatwierdzał zarząd",
+            "source": "raw"
+          },
+          {
+            "text": "Wdrożenie obejmowało więcej niż jego część pracy.",
+            "quote": "Zakres wdrożenia był szerszy niż moja praca.",
+            "source": "raw"
+          }
+        ],
+        "unknown": [
+          {
+            "text": "Efekty projektu. Odpowiedź i portfolio ich nie podają."
+          },
+          {
+            "text": "Rola pozostałych osób w projekcie. Kandydat sam proponuje o niej opowiedzieć.",
+            "quote": "Mogę omówić przykład i rolę pozostałych osób.",
+            "source": "raw"
+          },
+          {
+            "text": "Publiczny opis projektu jest niepełny; szczegóły kandydat chce omówić na rozmowie.",
+            "quote": "Publiczny opis nie zawiera wszystkich szczegółów.",
+            "source": "portfolio"
+          }
+        ]
+      },
+      "outcome": {
+        "decision": "continue",
+        "scopeClass": "własny"
+      }
+    }
+  ]
+}
