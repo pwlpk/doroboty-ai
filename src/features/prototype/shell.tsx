@@ -66,17 +66,6 @@ const employerNav = [
   ["/app/kandydaci", "Kandydaci", Users],
   ["/app/organizacja", "Organizacja", Building2],
 ] as const;
-/** Direction E brand mark: one square per Build / Apply / Lead plus ink. */
-function ShellMark() {
-  return (
-    <span className="e-mark" aria-hidden="true">
-      <i />
-      <i />
-      <i />
-      <i />
-    </span>
-  );
-}
 export function Shell() {
   const { state, issue, error, clearError } = usePrototype();
   const person = currentPerson(state);
@@ -137,7 +126,7 @@ export function Shell() {
         <div className="app-frame shell-e">
           <div className="mobile-header">
             <Link to="/" className="brand">
-              <ShellMark />
+              <BrandMark />
               DoRoboty.ai
             </Link>
             <Button
@@ -158,7 +147,7 @@ export function Shell() {
             }}
           >
             <Link className="brand" to="/">
-              <ShellMark />
+              <BrandMark />
               DoRoboty.ai
             </Link>
             <div className="workspace-label">

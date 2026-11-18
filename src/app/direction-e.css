@@ -81,9 +81,9 @@
   --e-line: #e4e3de;
   --e-ink: #18181b;
   --e-ink-2: #3f3f46;
-  --e-ink-3: #6b6b74;
+  --e-ink-3: #71717a;
   --e-action: #09090b;
-  --e-action-2: #ececee;
+  --e-action-2: #f4f4f5;
   --e-build: #ff5229;
   --e-apply: #3a7fe0;
   --e-lead: #5fae7e;
@@ -283,4 +283,439 @@
     min-height: 44px;
     padding-inline: 16px;
   }
+}
+
+/* App-wide direction E (Paweł, 18.11.2026): applies to every screen, not only the shell. */
+body {
+  background: var(--e-paper);
+  color: var(--e-ink);
+  font-family: var(--e-body);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--e-display);
+  font-weight: 500;
+}
+/* Primary action: label left, chevron right (decorative, hidden from assistive tech). */
+.btn-primary:not([class*=" size-"]) {
+  justify-content: space-between;
+  gap: 16px;
+}
+.btn-primary:not([class*=" size-"]):not(:has(svg))::after {
+  content: "›" / "";
+  font-size: 18px;
+  line-height: 1;
+}
+/* Public header and footer on the paper sheet */
+header:has([aria-label="Główna nawigacja"]) {
+  background: var(--e-paper);
+  border-bottom: 1px solid var(--e-line);
+  box-shadow: none;
+}
+header a[aria-label="DoRoboty.ai — strona główna"] {
+  gap: 10px;
+  font: 500 18px/1 var(--e-display);
+  letter-spacing: -0.01em;
+}
+footer {
+  background: var(--e-paper);
+  border-top: 1px solid var(--e-line);
+  box-shadow: none;
+}
+.brand {
+  font-family: var(--e-display);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* Shared direction E building blocks */
+.e-chip {
+  display: inline-flex;
+  align-self: flex-start;
+  justify-self: start;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  background: var(--e-action-2);
+  color: var(--e-ink);
+  font: 400 11px/16px var(--e-label);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.e-chip[data-cat="build"] {
+  box-shadow: inset 3px 0 0 var(--e-build);
+}
+.e-chip[data-cat="apply"] {
+  box-shadow: inset 3px 0 0 var(--e-apply);
+}
+.e-chip[data-cat="lead"] {
+  box-shadow: inset 3px 0 0 var(--e-lead);
+}
+.e-sheet {
+  max-width: 1280px;
+  margin-inline: auto;
+  border-inline: 1px solid var(--e-line);
+  background: var(--e-paper);
+}
+.e-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  border-bottom: 1px solid var(--e-line);
+}
+.e-hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 72px 24px 48px;
+  border-right: 1px solid var(--e-line);
+}
+.e-hero h1 {
+  font-size: 72px;
+  line-height: 72px;
+  letter-spacing: -0.02em;
+}
+.e-lead {
+  max-width: 58ch;
+  color: var(--e-ink-2);
+  font-size: 18px;
+  line-height: 28px;
+}
+.e-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.e-art-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.e-art-cell img {
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+}
+.e-section-head {
+  display: grid;
+  gap: 12px;
+  padding: 56px 24px 28px;
+  border-bottom: 1px solid var(--e-line);
+}
+.e-section-head h2 {
+  font-size: 56px;
+  line-height: 60px;
+  letter-spacing: -0.01em;
+}
+.e-section-head-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+.e-section-head-row > div {
+  display: grid;
+  gap: 12px;
+}
+.e-cats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-bottom: 1px solid var(--e-line);
+}
+.e-cat {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 260px;
+  padding: 28px 24px 24px;
+  border-right: 1px solid var(--e-line);
+  color: var(--e-ink);
+  text-decoration: none;
+}
+.e-cat:last-child {
+  border-right: 0;
+}
+.e-cat[data-cat="build"] {
+  background: var(--e-build);
+}
+.e-cat[data-cat="apply"] {
+  background: var(--e-apply);
+  color: #fff;
+}
+.e-cat[data-cat="lead"] {
+  background: var(--e-lead);
+}
+.e-cat h3 {
+  font-size: 44px;
+  line-height: 52px;
+}
+.e-cat p {
+  max-width: 30ch;
+}
+.e-cat-foot {
+  display: flex;
+  justify-content: space-between;
+  font: 400 13px/20px var(--e-label);
+  text-transform: uppercase;
+}
+.e-cat:hover h3 {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
+}
+.e-joblist {
+  padding: 24px;
+}
+@media (max-width: 850px) {
+  .e-hero {
+    grid-template-columns: 1fr;
+  }
+  .e-hero-text {
+    border-right: 0;
+    border-bottom: 1px solid var(--e-line);
+  }
+  .e-cats {
+    grid-template-columns: 1fr;
+  }
+  .e-cat {
+    min-height: 180px;
+    border-right: 0;
+    border-bottom: 1px solid var(--e-line);
+  }
+}
+@media (max-width: 600px) {
+  .e-hero-text,
+  .e-section-head {
+    padding: 36px 16px 28px;
+  }
+  .e-hero h1 {
+    font-size: 40px;
+    line-height: 44px;
+  }
+  .e-section-head h2 {
+    font-size: 36px;
+    line-height: 40px;
+  }
+  .e-art-cell img {
+    max-width: 260px;
+  }
+  .e-joblist {
+    padding: 16px;
+  }
+}
+
+/* Job card (shared by home, listing, saved, company and related offers) */
+.pp-job-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--e-line);
+  border-left: 1px solid var(--e-line);
+}
+.pp-job-card.e-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border: 0;
+  border-right: 1px solid var(--e-line);
+  border-bottom: 1px solid var(--e-line);
+  border-radius: 0;
+  background: var(--e-cell);
+  box-shadow: none;
+}
+.pp-job-card.e-card:hover {
+  background: #f0efe8;
+}
+.e-mosaic {
+  --c: var(--e-build);
+  --t: #ffd3c4;
+  position: relative;
+  height: 96px;
+  background-color: var(--t);
+  background-image: conic-gradient(var(--c) 25%, transparent 0 50%, var(--c) 0 75%, transparent 0);
+  background-size: 48px 48px;
+}
+.e-mosaic[data-cat="apply"] {
+  --c: var(--e-apply);
+  --t: #cfe0f8;
+}
+.e-mosaic[data-cat="lead"] {
+  --c: var(--e-lead);
+  --t: #d5ecdd;
+}
+.e-mosaic-logo {
+  position: absolute;
+  left: 20px;
+  bottom: -22px;
+  display: grid;
+  place-items: center;
+  padding: 2px;
+  border: 1px solid var(--e-line);
+  background: #fff;
+}
+.e-mosaic-logo > span {
+  width: 40px;
+  height: 40px;
+  border-radius: 0;
+}
+.e-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 36px 20px 18px;
+}
+.e-card-top {
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.e-card .pp-job-title {
+  font: 500 24px/32px var(--e-display);
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+}
+.e-card .pp-job-title a {
+  color: var(--e-ink);
+  text-decoration: none;
+}
+.e-card .pp-job-title a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.e-card-meta {
+  color: var(--e-ink-2);
+  font-size: 14px;
+  line-height: 20px;
+}
+.e-card-meta a {
+  color: inherit;
+}
+.e-card-foot {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto 44px;
+  border-top: 1px solid var(--e-line);
+}
+.e-card-foot > * {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  padding: 12px;
+  border-right: 1px solid var(--e-line);
+  color: var(--e-ink-2);
+  font-size: 13px;
+  line-height: 18px;
+}
+.e-card-foot > :last-child {
+  border-right: 0;
+}
+.e-card-foot b {
+  color: var(--e-ink);
+  font-size: 14px;
+  font-weight: 600;
+}
+.e-card-foot small {
+  color: var(--e-ink-3);
+  font-size: 12px;
+}
+.e-card-arrow {
+  align-items: center;
+  color: var(--e-ink) !important;
+  font-size: 20px !important;
+  text-decoration: none;
+}
+.e-card-arrow:hover {
+  background: var(--e-action-2);
+}
+
+/* Listing: drop the marker decoration, category tabs become chips */
+.pp-intro-copy h1 span:before {
+  display: none;
+}
+.pp-intro-copy h1 {
+  font-weight: 500;
+}
+.pp-category-tab {
+  min-height: 44px;
+  border-radius: 0;
+  background: var(--e-action-2);
+  border: 0;
+  font: 400 12px/16px var(--e-label);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.pp-category-tab b,
+.pp-category-tab > b {
+  font: inherit;
+}
+.pp-category-tab small {
+  font-family: var(--e-body);
+  text-transform: none;
+}
+.pp-category-tab[data-cat="build"] {
+  box-shadow: inset 3px 0 0 var(--e-build);
+}
+.pp-category-tab[data-cat="apply"] {
+  box-shadow: inset 3px 0 0 var(--e-apply);
+}
+.pp-category-tab[data-cat="lead"] {
+  box-shadow: inset 3px 0 0 var(--e-lead);
+}
+.pp-category-tab.pp-selected {
+  background: var(--e-ink);
+  color: #fff;
+}
+
+/* Match Score is a neutral label chip (category colours are reserved for categories). */
+.match-score,
+.match-score[data-score-band] {
+  padding: 4px 8px;
+  border-radius: 0;
+  background: var(--e-action-2);
+  color: var(--e-ink);
+  font: 400 11px/16px var(--e-label);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+/* Programmatic route focus on <main> should not draw a ring. */
+main#main:focus,
+main#main:focus-visible {
+  outline: none;
+}
+.record-stage {
+  font: 400 11px/16px var(--e-label);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+}
+.prototype-notice {
+  border-radius: 0;
+}
+.pp-offer-category {
+  border: 0;
+  border-radius: 0;
+  background: var(--e-action-2);
+  font: 400 11px/16px var(--e-label);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.pp-offer-category[data-cat="build"] {
+  box-shadow: inset 3px 0 0 var(--e-build);
+}
+.pp-offer-category[data-cat="apply"] {
+  box-shadow: inset 3px 0 0 var(--e-apply);
+}
+.pp-offer-category[data-cat="lead"] {
+  box-shadow: inset 3px 0 0 var(--e-lead);
 }

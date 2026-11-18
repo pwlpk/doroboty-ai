@@ -36,3 +36,13 @@ At Paweł's request the signed-in workspace shell (sidebar, top bar, mobile head
 ## Local fonts (18.11.2026)
 
 Added at Paweł's request. Verified in the desktop app's browser: all seven faces report `loaded`; Polish letters (ą ć ę ł ń ó ś ź ż and capitals) render from Geist, not a fallback; no horizontal scroll at 375 px. Format, lint, types, 31 unit tests, design-system check, packet check and build pass.
+
+## Whole app in direction E (18.11.2026)
+
+Paweł reported that the running app did not match his `doroboty-grid-ui` skill. The skill (proposed in the moodboard thread, not saved in this session) says direction E is for the new website only; Paweł now asks for the prototype app to follow it, which overrides that scope and the repo's Poster People requirement for this branch. The reference kit in docs/design-system stays unchanged.
+
+Changes: host tokens (`tokens.css`) and marketplace `--pp-*` tokens switched to E (paper, cell, beige 1px lines, no card radii, 6px controls, Geist 500 / Inter / Space Mono, neutral grey in place of pink); ink contours replaced by beige lines and surface radii set to 0 across host CSS; Button variants: primary black with a decorative `›`, secondary/outline grey, padding 8×12; BrandMark is the 2x2 category mark; home rebuilt as a grid sheet (hero text cell + illustration cell, coloured Build/Apply/Lead blocks, latest jobs); JobCard rebuilt per skill (mosaic, category chip, full title, meta, footer cells salary | mode | arrow, "Pensja do ustalenia" when missing); listing category tabs become chips with category stripes; Match Score and stage labels are neutral Space Mono chips; pink only on AI content (I5 summary); invite selection uses ink, not pink.
+
+Not yet matching the skill: offer page keeps top section tabs instead of the three-column side nav; no dark "Dla firm" section or pricing page exists in the app; company profile has no side nav. E2E browser tests were not run (no Playwright Chromium) and several assert Poster People CSS values (font sizes of `.pp-job-title`, `.pp-salary-tag`), so they need updating when a browser is available.
+
+Checked: format, lint, types, 31 unit tests, design-system check, packet check, build; desktop 1280 and phone 375 views of home, listing, offer, company, recruiting detail, job editor and the scope list, no horizontal scroll.

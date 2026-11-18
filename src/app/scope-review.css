@@ -74,8 +74,8 @@
   border: 0;
 }
 .scope-head .page-heading h1 {
-  font-size: 56px;
-  line-height: 60px;
+  font-size: 72px;
+  line-height: 72px;
   letter-spacing: -0.02em;
 }
 .scope-lead {
@@ -105,10 +105,13 @@
   --control-hover-text: var(--e-ink);
 }
 .scope-page .scope-btn-on {
-  background: var(--e-assist);
-  color: var(--e-ink);
-  --control-hover-bg: #f5b3e0;
-  --control-hover-text: var(--e-ink);
+  background: var(--e-ink);
+  color: #fafafa;
+  box-shadow:
+    inset 0 0 0 2px var(--e-ink),
+    inset 0 0 0 3px #fafafa;
+  --control-hover-bg: #2a2a2e;
+  --control-hover-text: #fafafa;
 }
 .scope-page .scope-btn:disabled {
   background: var(--e-cell);
@@ -148,7 +151,7 @@
   border-bottom: 0;
 }
 .scope-card[data-invited] {
-  box-shadow: inset 4px 0 0 var(--e-assist);
+  box-shadow: inset 4px 0 0 var(--e-ink);
 }
 .scope-card-header {
   display: grid;
@@ -296,8 +299,11 @@
 }
 .scope-mark {
   padding: 0 2px;
-  background: #ffd3c4;
+  background: var(--e-line);
   color: var(--e-ink);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
 }
 
 /* Moderator */
@@ -306,7 +312,7 @@
   gap: 12px;
   padding: 18px 24px;
   border-bottom: 1px solid var(--e-line);
-  background: #fff8db;
+  background: var(--e-cell);
 }
 .scope-variant {
   display: flex;
@@ -394,7 +400,6 @@
   }
 }
 .scope-page .scope-btn-on:disabled {
-  background: var(--e-assist);
-  color: var(--e-ink);
-  box-shadow: none;
+  background: var(--e-ink);
+  color: #fafafa;
 }
