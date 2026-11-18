@@ -50,3 +50,7 @@ Checked: format, lint, types, 31 unit tests, design-system check, packet check, 
 ## Blue paper variant (18.11.2026)
 
 At Paweł's request the beige neutrals were replaced by light blue: paper #f1f6fd, cell #e3edfa, grid line #c8d9ef, cell hover #d8e6f8. Ink, buttons, category and AI colours are unchanged. This deviates from the skill's measured beige values by Paweł's decision.
+
+## Motion (18.11.2026)
+
+At Paweł's request, in `direction-e.css`: staggered transform-only entrance for hero cells, category blocks, job cards, scope cards and summary columns (420ms); job-card hover drifts the mosaic and nudges the arrow; category blocks brighten; primary chevron nudges; the I2 original slides in and the quoted sentence flashes pink then settles. Everything sits under `prefers-reduced-motion: no-preference`, with an explicit reduce override. Transform-only keyframes keep content visible if the timeline is paused. Verified computed animation names/delays and visible opacity; the motion itself was not watched because the desktop app's browser pane was hidden (paused timeline).
