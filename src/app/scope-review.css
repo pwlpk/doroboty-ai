@@ -1,26 +1,6 @@
-/* Scope review list (I2 + I5) in design direction E ("grid"): warm paper sheet,
-   thin beige cell lines, no shadows, small radii, Geist 500 / Inter / Space Mono,
-   category colours Build/Apply/Lead and pink for AI-generated content.
-   Scoped to .scope-page; the rest of the app keeps its current theme. */
+/* Scope review list (I2 + I5) in design direction E ("grid"). Tokens live in
+   direction-e.css; scoped to .scope-page. */
 .scope-page {
-  --e-paper: #fbfbf8;
-  --e-cell: #f5f4ef;
-  --e-line: #e4e3de;
-  --e-ink: #18181b;
-  --e-ink-2: #3f3f46;
-  --e-ink-3: #6b6b74;
-  --e-action: #09090b;
-  --e-action-2: #ececee;
-  --e-build: #ff5229;
-  --e-apply: #3a7fe0;
-  --e-lead: #5fae7e;
-  --e-assist: #f29ad6;
-  --e-assist-t: #fde8f5;
-  --e-focus: #3a7fe0;
-  --e-ok-bg: #dff3e8;
-  --e-display: "Geist", Inter, system-ui, sans-serif;
-  --e-body: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --e-label: "Space Mono", ui-monospace, Menlo, monospace;
   display: grid;
   max-width: 1040px;
   border: 1px solid var(--e-line);

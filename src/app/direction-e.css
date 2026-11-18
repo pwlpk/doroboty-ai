@@ -1,0 +1,214 @@
+/* Design direction E ("grid"): shared tokens plus the signed-in workspace shell
+   (sidebar, top bar, mobile header). Warm paper, thin beige cell lines, no
+   shadows or rounded nav pills, Geist 500 / Inter / Space Mono stacks, category
+   colours Build/Apply/Lead, pink for AI content. Page content outside
+   .scope-page keeps its current Poster People styling. */
+:root {
+  --e-paper: #fbfbf8;
+  --e-cell: #f5f4ef;
+  --e-line: #e4e3de;
+  --e-ink: #18181b;
+  --e-ink-2: #3f3f46;
+  --e-ink-3: #6b6b74;
+  --e-action: #09090b;
+  --e-action-2: #ececee;
+  --e-build: #ff5229;
+  --e-apply: #3a7fe0;
+  --e-lead: #5fae7e;
+  --e-assist: #f29ad6;
+  --e-assist-t: #fde8f5;
+  --e-focus: #3a7fe0;
+  --e-ok-bg: #dff3e8;
+  --e-display: "Geist", Inter, system-ui, sans-serif;
+  --e-body: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --e-label: "Space Mono", ui-monospace, Menlo, monospace;
+}
+
+.shell-e {
+  background: var(--e-paper);
+  color: var(--e-ink);
+  font-family: var(--e-body);
+}
+.shell-e :focus-visible {
+  outline: 2px solid var(--e-focus);
+  outline-offset: 2px;
+}
+.shell-e .skip-link {
+  border-radius: 6px;
+  background: var(--e-action);
+  color: #fafafa;
+}
+
+/* Brand: 2x2 category mark + Geist wordmark */
+.shell-e .brand {
+  gap: 10px;
+  font: 500 18px/1 var(--e-display);
+  letter-spacing: -0.01em;
+  color: var(--e-ink);
+}
+.e-mark {
+  display: grid;
+  grid-template-columns: repeat(2, 8px);
+  gap: 2px;
+  flex: none;
+}
+.e-mark i {
+  display: block;
+  width: 8px;
+  height: 8px;
+}
+.e-mark i:nth-child(1) {
+  background: var(--e-build);
+}
+.e-mark i:nth-child(2) {
+  background: var(--e-apply);
+}
+.e-mark i:nth-child(3) {
+  background: var(--e-lead);
+}
+.e-mark i:nth-child(4) {
+  background: var(--e-ink);
+}
+
+/* Sidebar as a column of bordered rows */
+.shell-e .sidebar {
+  padding: 0;
+  background: var(--e-paper);
+  border-right: 1px solid var(--e-line);
+  box-shadow: none;
+}
+.shell-e .sidebar > .brand {
+  min-height: 52px;
+  padding: 0 20px;
+  border-bottom: 1px solid var(--e-line);
+}
+.shell-e .workspace-label {
+  margin: 0;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--e-line);
+  box-shadow: none;
+  gap: 12px;
+}
+.shell-e .workspace-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 0;
+  background: var(--e-cell);
+  box-shadow: inset 0 0 0 1px var(--e-line);
+  font: 500 15px/1 var(--e-display);
+}
+.shell-e .workspace-label strong {
+  font: 500 14px/20px var(--e-body);
+  color: var(--e-ink);
+}
+.shell-e .workspace-label div > span {
+  display: block;
+  margin-top: 2px;
+  font: 400 11px/16px var(--e-label);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--e-ink-3);
+}
+.shell-e .sidebar nav::before {
+  content: "Menu";
+  display: block;
+  padding: 16px 20px 8px;
+  font: 400 11px/16px var(--e-label);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--e-ink-3);
+}
+.shell-e .nav-link {
+  margin: 0;
+  padding: 10px 20px;
+  border-radius: 0;
+  border-bottom: 1px solid var(--e-line);
+  font: 400 15px/22px var(--e-body);
+  color: var(--e-ink-2);
+  --control-hover-bg: var(--e-cell);
+  --control-hover-text: var(--e-ink);
+}
+.shell-e nav .nav-link:first-of-type {
+  border-top: 1px solid var(--e-line);
+}
+.shell-e .nav-link svg {
+  color: var(--e-ink-3);
+}
+.shell-e .nav-active,
+.shell-e .nav-active:hover {
+  background: var(--e-cell);
+  color: var(--e-ink);
+  font-weight: 500;
+  box-shadow: inset 3px 0 0 var(--e-ink);
+  --control-hover-bg: var(--e-cell);
+  --control-hover-text: var(--e-ink);
+}
+.shell-e .nav-active svg {
+  color: var(--e-ink);
+}
+
+/* Top bar */
+.shell-e .topbar {
+  min-height: 52px;
+  padding: 0 24px;
+  background: var(--e-paper);
+  border-bottom: 1px solid var(--e-line);
+  box-shadow: none;
+  font: 400 11px/16px var(--e-label);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--e-ink-2);
+}
+.shell-e .topbar a {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  padding-left: 18px;
+  border-left: 1px solid var(--e-line);
+  color: var(--e-ink);
+  text-decoration: none;
+}
+.shell-e .topbar a:hover {
+  text-decoration: underline;
+}
+.shell-e .workspace {
+  background: var(--e-paper);
+}
+
+/* Mobile header */
+.shell-e .mobile-header {
+  background: var(--e-paper);
+}
+.shell-e .mobile-header [data-slot="button"] {
+  --control-hover-bg: var(--e-cell);
+  --control-hover-text: var(--e-ink);
+}
+@media (max-width: 767px) {
+  .shell-e .mobile-header {
+    height: 56px;
+    padding-inline: 16px;
+    border-bottom: 1px solid var(--e-line);
+    box-shadow: none;
+  }
+  .shell-e .mobile-header [data-slot="button"] {
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .shell-e .sidebar-open {
+    top: 56px;
+    padding: 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--e-line);
+    box-shadow: none;
+  }
+  .shell-e .sidebar nav::before {
+    display: none;
+  }
+  .shell-e .workspace {
+    min-height: calc(100dvh - 56px);
+  }
+  .shell-e .topbar {
+    min-height: 44px;
+    padding-inline: 16px;
+  }
+}

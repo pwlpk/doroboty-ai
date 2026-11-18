@@ -28,3 +28,7 @@ Give an employer persona (Karolina Wiśniewska, BrightLabs) one job with six app
 - Manual walk-through in the desktop app's browser at 1280×900 and 375×812 (no horizontal scroll); keyboard focus moves to the original region after a quote click.
 
 - 18.11.2026 restyle to direction E: same checks passed again; manual walk-through repeated at 1280×900 and 375×812. Quote click now waits two frames before focusing and scrolling to the original.
+
+## Workspace shell in direction E (18.11.2026)
+
+At Paweł's request the signed-in workspace shell (sidebar, top bar, mobile header and menu) uses direction E via `.shell-e` in `src/app/direction-e.css`, which also holds the shared `--e-*` tokens. The robot BrandMark is replaced in the shell by the direction-E 2x2 category mark; the public header/footer and page content outside `.scope-page` keep Poster People. Checked manually: employer and candidate shells at 1280×900, mobile menu at 375×812 (no horizontal scroll); format, lint, types, 31 unit tests, design-system check, packet check and build pass. E2E not run (no Playwright Chromium).
