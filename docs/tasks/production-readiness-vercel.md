@@ -49,3 +49,7 @@ On the production URL, desktop and a phone (or 375 px window):
 - `npm run format:check`, `lint`, `typecheck`, `test` (31/31), `verify:packet`, `build`: see final report in the thread.
 - `npx playwright test`: 34 passed after the contrast and assertion changes (before: 29 passed, 5 failed).
 - `design-system:check` requires Node 24 and was not run in this environment.
+
+## CI note
+
+GitHub Actions had never run in this repository (no workflow runs, including PR #1). The owner enabled Actions on 2026-11-21 so the Node 24 gate (`./scripts/verify`) runs on this PR.
