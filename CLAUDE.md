@@ -4,6 +4,8 @@ Start with npm ci and npm run dev. Do not infer work from historical course mate
 
 ## UI work is based on the local design system
 
+> Visual target update (2026-11-21): the running app uses design direction E (`src/app/direction-e.css`). See [decision 0002](docs/decisions/0002-direction-e-is-the-running-visual-direction.md); it wins on colours, type and surfaces, while the Poster People kit stays the reference for anatomy, states and verification.
+
 Read [project integration instructions](docs/design-system/README.md), [host implementation rules](docs/design-system/IMPLEMENTATION.md) and [application acceptance checklist](docs/design-system/VERIFICATION.md) first, followed by [design.md](docs/design-system/agent-kit/design.md), [component API](docs/design-system/agent-kit/components/API.md) and the relevant [human reference](docs/design-system/agent-kit/reference/components.md). Poster People is the required visual direction for new and changed screens; the previous theme guides are removed. The current host adaptation is implementation to verify, not an alternative visual authority.
 
 Use the packaged CSS, anatomy, responsive examples, local Geist Serif and illustration. Adapt them into existing React features, Base UI `render` components and host tokens; preserve hash routing, Zod, persona data, localStorage and application/employer workflows. The vanilla example controllers and numeric demo jobs are references, not product code to mount. Scope visual changes to the requested task. Follow the current ownership map and compare actual anatomy/type/state with the source; updating guidance alone does not verify the running UI.
