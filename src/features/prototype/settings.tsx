@@ -1,3 +1,4 @@
+import { analyticsEnabled } from "@/features/analytics/posthog";
 import { useState, type ChangeEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { ConfirmDialog } from "@/components/confirm-dialog";
@@ -128,6 +129,13 @@ export function PrivacyPage() {
           ich do bazy, dostawcy AI ani systemu analitycznego. Plik eksportu zawiera cały lokalny
           scenariusz, w tym notatki.
         </p>
+        {analyticsEnabled && (
+          <p>
+            Ta opublikowana wersja zbiera anonimowe statystyki użycia w PostHog (serwery w UE):
+            odwiedzane podstrony i kliknięcia. Nie nagrywa sesji ani treści wpisywanych w
+            formularzach.
+          </p>
+        )}
         <p>
           Możesz usunąć zmiany przyciskiem „Resetuj scenariusz” w ustawieniach lub wyczyścić dane
           witryny w przeglądarce. Hosting może prowadzić własne logi dostępu.
