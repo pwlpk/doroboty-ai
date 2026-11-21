@@ -24,6 +24,8 @@ FEATURES.md describes current behavior, not a roadmap. Update it in the same cha
 
 ## Required design system
 
+> Visual target update (2026-11-21): the running app uses design direction E (`src/app/direction-e.css`). See [decision 0002](docs/decisions/0002-direction-e-is-the-running-visual-direction.md); it wins on colours, type and surfaces, while the Poster People kit stays the reference for anatomy, states and verification.
+
 For every new or changed screen, use [Poster People project instructions](docs/design-system/README.md). Read that guide, [design.md](docs/design-system/agent-kit/design.md), [component API](docs/design-system/agent-kit/components/API.md), and the relevant [human reference](docs/design-system/agent-kit/reference/components.md) before choosing styles or layout. Read the [host implementation rules](docs/design-system/IMPLEMENTATION.md) and [application acceptance checklist](docs/design-system/VERIFICATION.md) as required companions. [GUI.md](GUI.md) is the short entry point. This is the required visual direction; the previous theme guidance has been removed.
 
 Use the complete local kit in docs/design-system/agent-kit as the source for typography, colors, radii, anatomy, responsive composition and states. Adapt it to this project's React/TypeScript/Vite and existing Base UI primitives. Keep the `render` API, hash routes, domain data and persistent local flows. Do not import the example controllers, fixtures, body reset or string renderer into product React code. Current application styles are implementation to adapt within the active task scope, not another approved visual target. Installing documentation does not itself convert the running UI.

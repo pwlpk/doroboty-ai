@@ -289,7 +289,7 @@ test("mobile navigation, light-only appearance and keyboard person selection", a
   await page.reload();
   await expect(page.getByRole("combobox", { name: "Motyw" })).toHaveCount(0);
   await expect(page.locator("html")).not.toHaveClass(/dark/);
-  await expect(page.locator("body")).toHaveCSS("background-color", "rgb(244, 244, 240)");
+  await expect(page.locator("body")).toHaveCSS("background-color", "rgb(241, 246, 253)");
   await page.screenshot({ path: "artifacts/settings-mobile-light.png", fullPage: true });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
@@ -458,7 +458,7 @@ test("legacy dark preference keeps scenario data and renders the light interface
     "Zachowaj mój profil",
   );
   await expect(page.locator("html")).not.toHaveClass(/dark/);
-  await expect(page.locator("body")).toHaveCSS("background-color", "rgb(244, 244, 240)");
+  await expect(page.locator("body")).toHaveCSS("background-color", "rgb(241, 246, 253)");
   await page.getByRole("button", { name: "Zapisz profil", exact: true }).click();
   expect(
     await page.evaluate((key) => JSON.parse(localStorage.getItem(key)!).theme, STORAGE_KEY),
@@ -576,14 +576,14 @@ test("desktop reset synchronizes search, category and facets with the URL", asyn
   );
 });
 
-test("canonical marketplace typography and search geometry match Poster People breakpoints", async ({
+test("canonical marketplace typography and search geometry match direction E breakpoints", async ({
   page,
 }) => {
   for (const [width, title, card] of [
-    [1280, "72px", "28px"],
-    [1100, "58px", "26px"],
-    [850, "52px", "28px"],
-    [390, "43px", "26px"],
+    [1280, "72px", "24px"],
+    [1100, "58px", "24px"],
+    [850, "52px", "24px"],
+    [390, "43px", "24px"],
   ] as const) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto("/#/oferty");
@@ -592,7 +592,7 @@ test("canonical marketplace typography and search geometry match Poster People b
     await expect(page.getByRole("textbox", { name: "Szukaj ofert", exact: true })).toBeVisible();
     if (width === 1280) {
       expect((await page.locator(".pp-search-form").boundingBox())!.width).toBe(1200);
-      await expect(page.locator(".pp-salary-tag").first()).toHaveCSS("font-size", "15px");
+      await expect(page.locator(".e-card-foot b").first()).toHaveCSS("font-size", "14px");
     }
   }
   for (const [width, title, salary] of [
@@ -652,11 +652,11 @@ test("homepage surfaces and marketplace action type roles match the shared refer
   page,
 }) => {
   await page.goto("/#/");
-  const cards = page.locator("main article.prototype-panel");
-  await expect(cards).toHaveCount(3);
-  for (const card of await cards.all()) {
-    await expect(card).toHaveCSS("border-radius", "24px");
-    await expect(card).toHaveCSS("box-shadow", /rgb\(24, 24, 24\).*1px inset/);
+  const cells = page.locator("main .e-cats .e-cat");
+  await expect(cells).toHaveCount(3);
+  for (const cell of await cells.all()) {
+    await expect(cell).toHaveCSS("border-radius", "0px");
+    await expect(cell).toHaveCSS("box-shadow", "none");
   }
   for (const [width, searchSize, offerSize, payLine] of [
     [1280, "14px", "14px", "34.8px"],

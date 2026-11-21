@@ -1,5 +1,7 @@
 # GUI — DoRoboty.ai Poster People
 
+> Visual target update (2026-11-21): the running app uses design direction E (`src/app/direction-e.css`). See [decision 0002](docs/decisions/0002-direction-e-is-the-running-visual-direction.md); it wins on colours, type and surfaces, while the Poster People kit stays the reference for anatomy, states and verification.
+
 The required visual direction for new and changed screens is the accepted **Poster People** design system. The project instructions are [docs/design-system/README.md](docs/design-system/README.md). Read them before UI work; they define how the standalone reference is adapted to this React/TypeScript/Vite application. The previous theme reference tree and skill requirements have been removed.
 
 ## Read and preview
