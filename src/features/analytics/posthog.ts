@@ -41,7 +41,7 @@ function loadClient(): Promise<PostHog | null> {
         autocapture: true,
         // Never record sessions: forms contain free text typed by testers.
         disable_session_recording: true,
-        disable_surveys: true,
+        // Surveys created in the PostHog project (e.g. NPS) may show as popovers.
         person_profiles: "identified_only",
         persistence: "localStorage",
       });

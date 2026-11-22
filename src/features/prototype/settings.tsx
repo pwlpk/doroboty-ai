@@ -132,8 +132,8 @@ export function PrivacyPage() {
         {analyticsEnabled && (
           <p>
             Ta opublikowana wersja zbiera anonimowe statystyki użycia w PostHog (serwery w UE):
-            odwiedzane podstrony i kliknięcia. Nie nagrywa sesji ani treści wpisywanych w
-            formularzach.
+            odwiedzane podstrony i kliknięcia. Może też wyświetlić krótką ankietę, a odpowiedzi na
+            nią trafiają do PostHog. Nie nagrywa sesji ani treści wpisywanych w formularzach.
           </p>
         )}
         <p>
