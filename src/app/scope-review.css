@@ -65,17 +65,18 @@
 /* Page head */
 .scope-head {
   display: grid;
-  gap: 16px;
-  padding: 48px 24px 32px;
+  gap: 12px;
+  padding: 32px 24px 24px;
   border-bottom: 1px solid var(--e-line);
 }
 .scope-head .page-heading {
   padding: 0;
   border: 0;
+  margin: 0;
 }
 .scope-head .page-heading h1 {
-  font-size: 72px;
-  line-height: 72px;
+  font-size: 48px;
+  line-height: 52px;
   letter-spacing: -0.02em;
 }
 .scope-lead {
@@ -135,7 +136,10 @@
   font-weight: 500;
 }
 .scope-list + .scope-task {
-  border-top: 1px solid var(--e-line);
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  border-top: 1px solid var(--e-ink);
   border-bottom: 0;
 }
 
@@ -145,10 +149,15 @@
 }
 .scope-card {
   display: grid;
-  border-bottom: 1px solid var(--e-line);
+  border-top: 2px solid var(--e-ink);
 }
-.scope-card:last-child {
-  border-bottom: 0;
+.scope-card-number {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--e-ink-3);
+  font: 400 11px/16px var(--e-label);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 .scope-card[data-invited] {
   box-shadow: inset 4px 0 0 var(--e-ink);
@@ -281,6 +290,29 @@
   line-height: 24px;
   overflow-wrap: anywhere;
 }
+.scope-answer-text[data-collapsed] {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+}
+.scope-more {
+  justify-self: start;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--e-ink);
+  font: 500 14px/22px var(--e-body);
+  text-decoration: underline;
+  text-decoration-color: var(--e-line);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+.scope-more:hover {
+  text-decoration-color: var(--e-ink);
+}
 .scope-card-actions {
   display: flex;
   flex-wrap: wrap;
@@ -375,11 +407,24 @@
 }
 .scope-overview-list li {
   display: grid;
-  grid-template-columns: 200px auto minmax(0, 1fr);
+  grid-template-columns: 230px auto minmax(0, 1fr);
   align-items: baseline;
   gap: 16px;
   padding: 12px 24px;
   border-bottom: 1px solid var(--e-line);
+}
+.scope-overview-who {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+}
+.scope-overview-list li[data-invited] {
+  box-shadow: inset 4px 0 0 var(--e-ink);
+}
+.scope-chip-on {
+  background: var(--e-ink);
+  color: #fafafa;
 }
 .scope-overview-list li:last-child {
   border-bottom: 0;
@@ -463,8 +508,8 @@
     padding: 28px 16px 22px;
   }
   .scope-head .page-heading h1 {
-    font-size: 38px;
-    line-height: 42px;
+    font-size: 32px;
+    line-height: 36px;
   }
   .scope-card-header {
     grid-template-columns: 1fr;

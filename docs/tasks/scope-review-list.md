@@ -68,3 +68,15 @@ Acceptance criteria:
 - The scope sentences are derived, not duplicated: Zod requires `answerWithScope` to be the assistant answer followed by sentences that occur verbatim in the original answer.
 
 E4 decision (Paweł, 24.11.2026: keep the highlight): the original E4 plan kept the I2 sentence unhighlighted to test whether recruiters notice it. E4 now tests whether a sentence the recruiter clearly sees changes their choice; `obecna` remains the control. The E4 plan in the project library was updated accordingly.
+
+## Visual refinements (24.11.2026)
+
+Paweł chose all five proposed refinements for the scope list:
+
+1. In both I2 variants the assistant answer is clamped to three lines with a "Pokaż pełną odpowiedź" / "Zwiń odpowiedź" toggle (`aria-expanded`); `obecna` keeps the full text because it is the control.
+2. The AI summary heading is "Podsumowanie zakresu", so it no longer repeats the candidate's "Zakres własnej pracy" cell.
+3. One selection bar ("Wybrano n z 2" + "Zatwierdź wybór") after the list, sticky to the bottom of the viewport and announced as a live region; the duplicate bar above the list is removed.
+4. Each card starts with a 2px ink rule and a "Kandydat n z 6" label.
+5. Page title 48px (32px on phones) with tighter head spacing; overview rows show a "Wybrano" chip and an ink stripe for invited candidates.
+
+Checked: lint, types, unit tests, build, e2e; 1280×900 and 375×812, no horizontal scroll; sticky bar stays at the viewport bottom while scrolling; toggle reports `aria-expanded`.
