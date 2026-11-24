@@ -306,6 +306,107 @@
   text-underline-offset: 3px;
 }
 
+/* I2, exposed: the candidate's own scope sentences as a separate cell */
+.scope-card:focus {
+  outline: none;
+}
+.scope-card:focus-visible {
+  outline: 2px solid var(--e-focus);
+  outline-offset: -2px;
+}
+.scope-own {
+  display: grid;
+  gap: 8px;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--e-line);
+  background: var(--e-paper);
+  box-shadow: inset 4px 0 0 var(--e-ink);
+}
+.scope-own h3 {
+  font-size: 22px;
+  line-height: 28px;
+}
+.scope-own-text {
+  max-width: 60ch;
+  color: var(--e-ink);
+  font-size: 19px;
+  line-height: 30px;
+  overflow-wrap: anywhere;
+}
+
+/* O1.3: follow-up questions, part of the AI summary */
+.scope-followups {
+  display: grid;
+  gap: 10px;
+  padding: 16px 24px 20px;
+  border-top: 1px solid #f3cfe6;
+}
+.scope-followups h4 {
+  font: 400 11px/16px var(--e-label);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--e-ink-2);
+}
+.scope-followups ul {
+  display: grid;
+  gap: 6px;
+  padding-left: 20px;
+  list-style: disc;
+  font-size: 15px;
+  line-height: 22px;
+}
+
+/* O1.3: overview of everyone's scope sentence */
+.scope-overview {
+  border-bottom: 1px solid var(--e-line);
+}
+.scope-overview-head {
+  display: grid;
+  gap: 6px;
+  padding: 20px 24px 14px;
+  border-bottom: 1px solid var(--e-line);
+}
+.scope-overview-head h2 {
+  font-size: 22px;
+  line-height: 28px;
+}
+.scope-overview-list {
+  display: grid;
+}
+.scope-overview-list li {
+  display: grid;
+  grid-template-columns: 200px auto minmax(0, 1fr);
+  align-items: baseline;
+  gap: 16px;
+  padding: 12px 24px;
+  border-bottom: 1px solid var(--e-line);
+}
+.scope-overview-list li:last-child {
+  border-bottom: 0;
+}
+.scope-overview-list p {
+  font-size: 15px;
+  line-height: 22px;
+  overflow-wrap: anywhere;
+}
+.scope-overview-name {
+  justify-self: start;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--e-ink);
+  font: 500 16px/22px var(--e-display);
+  text-align: left;
+  text-decoration: underline;
+  text-decoration-color: var(--e-line);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+.scope-overview-name:hover {
+  text-decoration-color: var(--e-ink);
+}
+
 /* Moderator */
 .scope-moderator {
   display: grid;
@@ -388,8 +489,23 @@
   .scope-task {
     padding-inline: 16px;
   }
-  .scope-card-actions {
+  .scope-card-actions,
+  .scope-own,
+  .scope-followups,
+  .scope-overview-head {
     padding-inline: 16px;
+  }
+  .scope-overview-list li {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 6px 12px;
+    padding-inline: 16px;
+  }
+  .scope-overview-list p {
+    grid-column: 1 / -1;
+  }
+  .scope-own-text {
+    font-size: 17px;
+    line-height: 26px;
   }
   .scope-stats {
     grid-template-columns: 1fr;

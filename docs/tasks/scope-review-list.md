@@ -54,3 +54,17 @@ At Paweł's request the beige neutrals were replaced by light blue: paper #f1f6f
 ## Motion (18.11.2026)
 
 At Paweł's request, in `direction-e.css`: staggered transform-only entrance for hero cells, category blocks, job cards, scope cards and summary columns (420ms); job-card hover drifts the mosaic and nudges the arrow; category blocks brighten; primary chevron nudges; the I2 original slides in and the quoted sentence flashes pink then settles. Everything sits under `prefers-reduced-motion: no-preference`, with an explicit reduce override. Transform-only keyframes keep content visible if the timeline is paused. Verified computed animation names/delays and visible opacity; the motion itself was not watched because the desktop app's browser pane was hidden (paused timeline).
+
+## Expose the scope sentence and add follow-up questions (24.11.2026)
+
+Source: the extended discovery tree (r34) in the project library. O1.1 (the recruiter wants to read the candidate's own sentence about what they did alone before inviting) was chosen with PRES 18; B7 (agent walk-through, not customer evidence) observed that in the I2 variant the scope sentence is lost at the end of a long assistant paragraph; O1.3 (several answers sound equally good: whom to start with and what to ask) was accepted with PRES 14. O6 (job description) has lower priority and is out of scope here.
+
+Acceptance criteria:
+
+- In `?wersja=i2` and `i2-i5`, each card shows the preserved scope sentences in their own "Zakres własnej pracy" cell above the assistant text, labelled as the candidate's words without assistant edits; inside the full answer they are highlighted.
+- Above the list (both I2 variants) a "Kto co zrobił sam" overview lists every candidate's scope sentences in application order with Match Score; activating a name moves focus and scroll to that card. No automated ranking.
+- In `i2-i5`, the AI summary ends with "O co dopytać na rozmowie": 1–3 prepared questions per candidate, hand-written from the "Czego nie wiadomo" items.
+- `?wersja=obecna` is unchanged.
+- The scope sentences are derived, not duplicated: Zod requires `answerWithScope` to be the assistant answer followed by sentences that occur verbatim in the original answer.
+
+E4 decision (Paweł, 24.11.2026: keep the highlight): the original E4 plan kept the I2 sentence unhighlighted to test whether recruiters notice it. E4 now tests whether a sentence the recruiter clearly sees changes their choice; `obecna` remains the control. The E4 plan in the project library was updated accordingly.

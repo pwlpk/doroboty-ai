@@ -55,6 +55,10 @@
           }
         ]
       },
+      "followUps": [
+        "Jaki efekt dało ustalenie priorytetów ze sponsorem i jak go sprawdzono?",
+        "Które decyzje o kolejności prac podjął sam, a które zatwierdzał zarząd?"
+      ],
       "outcome": {
         "decision": "continue",
         "scopeClass": "własny"
@@ -107,6 +111,10 @@
           }
         ]
       },
+      "followUps": [
+        "Czy można porozmawiać ze sponsorem, który potwierdza jego odpowiedzialność?",
+        "Na czym polegała decyzja o ograniczeniu zakresu i co z niej wynikło?"
+      ],
       "outcome": {
         "decision": "reject",
         "scopeClass": "własny"
@@ -154,6 +162,10 @@
           }
         ]
       },
+      "followUps": [
+        "Jaką decyzję w projekcie podjął sam, poza przygotowaniem materiałów?",
+        "Kto korzystał z jego materiałów i co na ich podstawie zdecydowano?"
+      ],
       "outcome": {
         "decision": "reject",
         "scopeClass": "ograniczona"
@@ -201,6 +213,10 @@
           }
         ]
       },
+      "followUps": [
+        "Kto przygotował plan, który prezentował, i co w tym planie było jego?",
+        "Za którą część wdrożenia odpowiadał sam?"
+      ],
       "outcome": {
         "decision": "reject",
         "scopeClass": "ograniczona"
@@ -248,6 +264,10 @@
           }
         ]
       },
+      "followUps": [
+        "Jaką decyzję w projekcie podjął sam, poza przygotowaniem materiałów?",
+        "Co zmieniło się w projekcie dzięki jego pracy?"
+      ],
       "outcome": {
         "decision": "reject",
         "scopeClass": "ograniczona"
@@ -305,6 +325,10 @@
           }
         ]
       },
+      "followUps": [
+        "Jaki efekt dało ustalenie priorytetów ze sponsorem i jak go sprawdzono?",
+        "Które szczegóły zakresu pominął w publicznym opisie i dlaczego?"
+      ],
       "outcome": {
         "decision": "continue",
         "scopeClass": "własny"

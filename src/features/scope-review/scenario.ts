@@ -24,6 +24,8 @@ const applicationSchema = z.object({
     others: z.array(summaryItem),
     unknown: z.array(summaryItem),
   }),
+  // O1.3: prepared questions to ask in the first conversation, shown with the I5 summary.
+  followUps: z.array(z.string().min(1).max(200)).min(1).max(3),
   // Known only to the moderator: the historical decision after the first conversation.
   outcome: z.object({
     decision: z.enum(["continue", "reject"]),
@@ -38,14 +40,30 @@ export const scenarioSchema = z
     applications: z.array(applicationSchema).length(6),
   })
   .superRefine((s, ctx) => {
-    for (const a of s.applications)
+    for (const a of s.applications) {
+      const own = ownWords(a);
+      if (!own || !a.originalAnswer.includes(own))
+        ctx.addIssue({
+          code: "custom",
+          message: `Preserved scope sentences in ${a.id} must extend the assistant answer and come verbatim from the original`,
+        });
       for (const item of [...a.summary.own, ...a.summary.others, ...a.summary.unknown]) {
         if (!item.quote) continue;
         const source = item.source === "portfolio" ? a.portfolio : a.originalAnswer;
         if (!source.includes(item.quote))
           ctx.addIssue({ code: "custom", message: `Quote not verbatim in ${a.id}: ${item.quote}` });
       }
+    }
   });
+
+/**
+ * I2: the candidate's own scope sentences that the assistant kept. They are the
+ * tail of `answerWithScope` after the assistant text; empty when the shape breaks.
+ */
+export function ownWords(a: Pick<ScopeApplication, "assistantAnswer" | "answerWithScope">) {
+  if (!a.answerWithScope.startsWith(a.assistantAnswer)) return "";
+  return a.answerWithScope.slice(a.assistantAnswer.length).trim();
+}
 
 export type ScopeApplication = z.infer<typeof applicationSchema>;
 export type SummaryItem = z.infer<typeof summaryItem>;

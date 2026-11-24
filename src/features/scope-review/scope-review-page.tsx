@@ -9,6 +9,7 @@ import { usePrototype } from "@/features/prototype/store";
 import { seniorityLabels } from "@/features/jobs/presentation";
 import {
   INVITE_LIMIT,
+  ownWords,
   parseVariant,
   scenario,
   scoreSelection,
@@ -65,6 +66,43 @@ function SummaryPart({
   );
 }
 
+/** I2, exposed: the candidate's preserved scope sentences, outside the assistant text. */
+function OwnWords({ application }: { application: ScopeApplication }) {
+  return (
+    <section className="scope-own" aria-labelledby={`${application.id}-own`}>
+      <span className="scope-chip">Słowa kandydata, bez poprawek asystenta</span>
+      <h3 id={`${application.id}-own`}>Zakres własnej pracy</h3>
+      <blockquote className="scope-own-text">„{ownWords(application)}”</blockquote>
+    </section>
+  );
+}
+
+/** O1.3: one place to compare the scope sentences before opening the cards. */
+function ScopeOverview({ onOpen }: { onOpen: (id: string) => void }) {
+  return (
+    <section className="scope-overview" aria-labelledby="scope-overview-title">
+      <div className="scope-overview-head">
+        <h2 id="scope-overview-title">Kto co zrobił sam</h2>
+        <p className="scope-caption">
+          Zdania kandydatów o własnym zakresie, w kolejności aplikacji. Kliknij imię, by przejść do
+          aplikacji.
+        </p>
+      </div>
+      <ol className="scope-overview-list">
+        {scenario.applications.map((a) => (
+          <li key={a.id}>
+            <button type="button" className="scope-overview-name" onClick={() => onOpen(a.id)}>
+              {a.candidateName}
+            </button>
+            <MatchScore score={a.score} />
+            <p>„{ownWords(a)}”</p>
+          </li>
+        ))}
+      </ol>
+    </section>
+  );
+}
+
 function CandidateCard({
   application,
   variant,
@@ -108,6 +146,8 @@ function CandidateCard({
 
   return (
     <article
+      id={application.id}
+      tabIndex={-1}
       className="scope-card"
       data-invited={invited || undefined}
       aria-labelledby={`${application.id}-name`}
@@ -132,6 +172,8 @@ function CandidateCard({
           )}
         </div>
       </header>
+
+      {variant !== "obecna" && <OwnWords application={application} />}
 
       {variant === "i2-i5" && (
         <section
@@ -158,6 +200,14 @@ function CandidateCard({
               onQuote={showQuote}
             />
           </div>
+          <div className="scope-followups">
+            <h4>O co dopytać na rozmowie</h4>
+            <ul>
+              {application.followUps.map((q) => (
+                <li key={q}>{q}</li>
+              ))}
+            </ul>
+          </div>
         </section>
       )}
 
@@ -166,9 +216,11 @@ function CandidateCard({
         <p className="scope-caption">
           {variant === "obecna"
             ? "Wersja poprawiona przez asystenta."
-            : "Wersja poprawiona przez asystenta, z zachowanymi zdaniami kandydata o zakresie."}
+            : "Wersja poprawiona przez asystenta. Zachowane zdania kandydata o zakresie są podkreślone."}
         </p>
-        <p className="scope-answer-text">{answer}</p>
+        <p className="scope-answer-text">
+          {variant === "obecna" ? answer : <Marked text={answer} quote={ownWords(application)} />}
+        </p>
       </section>
 
       <div className="scope-card-actions">
@@ -370,6 +422,16 @@ export function ScopeReviewPage() {
       )}
 
       {taskBar(true)}
+
+      {variant !== "obecna" && (
+        <ScopeOverview
+          onOpen={(id) => {
+            const card = document.getElementById(id);
+            card?.focus({ preventScroll: true });
+            card?.scrollIntoView({ block: "start" });
+          }}
+        />
+      )}
 
       <div className="scope-list" key={`${variant}-${session}`}>
         {scenario.applications.map((a) => (

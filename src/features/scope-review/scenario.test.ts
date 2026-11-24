@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import raw from "./scenario.json" with { type: "json" };
-import { parseVariant, scenario, scenarioSchema, scoreSelection } from "./scenario";
+import { ownWords, parseVariant, scenario, scenarioSchema, scoreSelection } from "./scenario";
 
 describe("scope review scenario", () => {
   it("has six applications for one job with two historical continuations", () => {
@@ -18,6 +18,22 @@ describe("scope review scenario", () => {
       expect(a.answerWithScope).toContain(scope);
       expect(a.assistantAnswer).not.toContain(scope);
     }
+  });
+  it("exposes the preserved scope sentences as the candidate's verbatim words", () => {
+    for (const a of scenario.applications) {
+      const own = ownWords(a);
+      expect(own.length).toBeGreaterThan(0);
+      expect(a.originalAnswer).toContain(own);
+      expect(own).toContain(a.summary.own[0].quote!);
+    }
+  });
+  it("rejects preserved sentences the candidate did not write", () => {
+    const broken = structuredClone(raw);
+    broken.applications[0].answerWithScope += " Samodzielnie wdrożyłem cały system.";
+    expect(scenarioSchema.safeParse(broken).success).toBe(false);
+  });
+  it("has prepared follow-up questions for every candidate", () => {
+    for (const a of scenario.applications) expect(a.followUps.length).toBeGreaterThan(0);
   });
   it("defaults to the combined variant and scores selections", () => {
     expect(parseVariant(null)).toBe("i2-i5");
