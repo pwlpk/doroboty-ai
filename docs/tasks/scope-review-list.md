@@ -67,4 +67,4 @@ Acceptance criteria:
 - `?wersja=obecna` is unchanged.
 - The scope sentences are derived, not duplicated: Zod requires `answerWithScope` to be the assistant answer followed by sentences that occur verbatim in the original answer.
 
-Note for E4: the original E4 plan kept the I2 sentence unhighlighted to test whether recruiters notice it. Exposing it changes what the I2 variant tests (whether the sentence changes the choice once seen); `obecna` remains the control.
+E4 decision (Paweł, 24.11.2026: keep the highlight): the original E4 plan kept the I2 sentence unhighlighted to test whether recruiters notice it. E4 now tests whether a sentence the recruiter clearly sees changes their choice; `obecna` remains the control. The E4 plan in the project library was updated accordingly.
