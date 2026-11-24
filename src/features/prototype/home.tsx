@@ -4,26 +4,11 @@ import { JobCard } from "@/features/jobs/job-card";
 import { usePrototype } from "./store";
 import { publishedJobs } from "./model";
 import { cn } from "@/lib/utils";
+import { siteCategories } from "@/features/public/site-content";
 
 import peopleArt from "../../../docs/design-system/agent-kit/assets/people.png";
 
-const categories = [
-  {
-    slug: "build",
-    label: "Build",
-    description: "Tworzysz modele, systemy i produkty wykorzystujące AI.",
-  },
-  {
-    slug: "apply",
-    label: "Apply",
-    description: "Używasz AI, żeby lepiej wykonywać swoją właściwą pracę.",
-  },
-  {
-    slug: "lead",
-    label: "Lead",
-    description: "Prowadzisz zmianę, decyzje i zespoły w świecie AI.",
-  },
-] as const;
+const categories = siteCategories;
 
 export default function HomePage() {
   const { state } = usePrototype();
