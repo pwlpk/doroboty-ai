@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import { SiteAssistant } from "@/features/assistant/site-assistant";
 import { Link, NavLink, Outlet, useLocation } from "react-router";
 import {
   Menu,
@@ -309,6 +310,7 @@ export function Shell() {
               </div>
             </div>
           </footer>
+          <SiteAssistant />
         </>
       )}
     </div>

@@ -4,6 +4,7 @@
   "installCommand": "npm ci",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
+  "functions": { "api/chat.ts": { "maxDuration": 30 } },
   "headers": [
     {
       "source": "/(.*)",

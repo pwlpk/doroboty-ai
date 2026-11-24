@@ -1,18 +1,4 @@
-const criteria = [
-  ["AI zmienia pracę", "Technologia wpływa na odpowiedzialność, decyzje lub rezultat stanowiska."],
-  [
-    "Wynik da się zobaczyć",
-    "Opis roli wskazuje problem, odbiorcę i efekt, a nie samą listę narzędzi.",
-  ],
-  [
-    "Człowiek zachowuje odpowiedzialność",
-    "Automatyzacja wspiera decyzję; nie ukrywa jej autora ani konsekwencji.",
-  ],
-  [
-    "Oferta daje konkret",
-    "Pokazuje tryb pracy, poziom, formę współpracy i — kiedy to możliwe — wynagrodzenie.",
-  ],
-] as const;
+import { methodologyCriteria as criteria } from "@/features/public/site-content";
 
 export default function MethodologyPage() {
   return (

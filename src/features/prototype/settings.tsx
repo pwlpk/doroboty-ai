@@ -129,6 +129,11 @@ export function PrivacyPage() {
           ich do bazy, dostawcy AI ani systemu analitycznego. Plik eksportu zawiera cały lokalny
           scenariusz, w tym notatki.
         </p>
+        <p>
+          Asystent „Zapytaj asystenta” na stronach publicznych wysyła Twoje pytania i bieżącą
+          rozmowę do modelu Claude firmy Anthropic, który przygotowuje odpowiedź. Nie zapisujemy
+          tych pytań; rozmowa znika po odświeżeniu strony. Nie wpisuj w nim danych osobowych.
+        </p>
         {analyticsEnabled && (
           <p>
             Ta opublikowana wersja zbiera anonimowe statystyki użycia w PostHog (serwery w UE):
