@@ -78,7 +78,7 @@ function OwnWords({ application }: { application: ScopeApplication }) {
 }
 
 /** O1.3: one place to compare the scope sentences before opening the cards. */
-function ScopeOverview({ onOpen }: { onOpen: (id: string) => void }) {
+function ScopeOverview({ selected, onOpen }: { selected: string[]; onOpen: (id: string) => void }) {
   return (
     <section className="scope-overview" aria-labelledby="scope-overview-title">
       <div className="scope-overview-head">
@@ -90,10 +90,13 @@ function ScopeOverview({ onOpen }: { onOpen: (id: string) => void }) {
       </div>
       <ol className="scope-overview-list">
         {scenario.applications.map((a) => (
-          <li key={a.id}>
-            <button type="button" className="scope-overview-name" onClick={() => onOpen(a.id)}>
-              {a.candidateName}
-            </button>
+          <li key={a.id} data-invited={selected.includes(a.id) || undefined}>
+            <div className="scope-overview-who">
+              <button type="button" className="scope-overview-name" onClick={() => onOpen(a.id)}>
+                {a.candidateName}
+              </button>
+              {selected.includes(a.id) && <span className="scope-chip scope-chip-on">Wybrano</span>}
+            </div>
             <MatchScore score={a.score} />
             <p>„{ownWords(a)}”</p>
           </li>
@@ -105,6 +108,7 @@ function ScopeOverview({ onOpen }: { onOpen: (id: string) => void }) {
 
 function CandidateCard({
   application,
+  position,
   variant,
   invited,
   inviteDisabled,
@@ -115,6 +119,7 @@ function CandidateCard({
   onQuote,
 }: {
   application: ScopeApplication;
+  position: number;
   variant: Variant;
   invited: boolean;
   inviteDisabled: boolean;
@@ -125,6 +130,9 @@ function CandidateCard({
   onQuote: () => void;
 }) {
   const [open, setOpen] = useState(false);
+  const [fullAnswer, setFullAnswer] = useState(false);
+  const collapsible = variant !== "obecna";
+  const answerId = `${application.id}-answer`;
   const [mark, setMark] = useState<{ quote: string; source: "raw" | "portfolio" } | null>(null);
   const originalRef = useRef<HTMLDivElement>(null);
   const regionId = `${application.id}-original`;
@@ -154,6 +162,9 @@ function CandidateCard({
     >
       <header className="scope-card-header">
         <div>
+          <span className="scope-card-number">
+            Kandydat {position} z {scenario.applications.length}
+          </span>
           <h2 id={`${application.id}-name`} className="scope-card-name">
             {application.candidateName}
           </h2>
@@ -182,7 +193,7 @@ function CandidateCard({
         >
           <div className="scope-summary-head">
             <span className="scope-chip scope-chip-ai">Podsumowanie AI</span>
-            <h3>Co kandydat zrobił sam</h3>
+            <h3>Podsumowanie zakresu</h3>
             <p className="scope-caption">
               Z odpowiedzi i portfolio. Każde zdanie ma cytat; kliknij go, by sprawdzić w oryginale.
             </p>
@@ -218,9 +229,24 @@ function CandidateCard({
             ? "Wersja poprawiona przez asystenta."
             : "Wersja poprawiona przez asystenta. Zachowane zdania kandydata o zakresie są podkreślone."}
         </p>
-        <p className="scope-answer-text">
+        <p
+          id={answerId}
+          className="scope-answer-text"
+          data-collapsed={(collapsible && !fullAnswer) || undefined}
+        >
           {variant === "obecna" ? answer : <Marked text={answer} quote={ownWords(application)} />}
         </p>
+        {collapsible && (
+          <button
+            type="button"
+            className="scope-more"
+            aria-expanded={fullAnswer}
+            aria-controls={answerId}
+            onClick={() => setFullAnswer(!fullAnswer)}
+          >
+            {fullAnswer ? "Zwiń odpowiedź" : "Pokaż pełną odpowiedź"}
+          </button>
+        )}
       </section>
 
       <div className="scope-card-actions">
@@ -365,8 +391,8 @@ export function ScopeReviewPage() {
   let status: ReactNode = `Wybrano ${selected.length} z ${INVITE_LIMIT}.`;
   if (confirmed) status = `Zapisano wybór: ${names(selected)}.`;
 
-  const taskBar = (live: boolean) => (
-    <div className="scope-task" aria-live={live ? "polite" : undefined}>
+  const taskBar = (
+    <div className="scope-task" aria-live="polite">
       <p>
         <strong>{status}</strong>
         {confirmed && " W tym scenariuszu zaproszenia nie są wysyłane do kandydatów."}
@@ -421,10 +447,9 @@ export function ScopeReviewPage() {
         />
       )}
 
-      {taskBar(true)}
-
       {variant !== "obecna" && (
         <ScopeOverview
+          selected={selected}
           onOpen={(id) => {
             const card = document.getElementById(id);
             card?.focus({ preventScroll: true });
@@ -434,10 +459,11 @@ export function ScopeReviewPage() {
       )}
 
       <div className="scope-list" key={`${variant}-${session}`}>
-        {scenario.applications.map((a) => (
+        {scenario.applications.map((a, index) => (
           <CandidateCard
             key={a.id}
             application={a}
+            position={index + 1}
             variant={variant}
             moderator={moderator}
             invited={selected.includes(a.id)}
@@ -451,7 +477,7 @@ export function ScopeReviewPage() {
           />
         ))}
       </div>
-      {taskBar(false)}
+      {taskBar}
     </div>
   );
 }
