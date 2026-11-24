@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import type Anthropic from "@anthropic-ai/sdk";
+import Anthropic from "@anthropic-ai/sdk";
 import { chatRequestSchema, MAX_HISTORY_MESSAGES, trimHistory, type ChatMessage } from "./schema";
 import { buildSystemPrompt } from "./knowledge";
 import { handleChatRequest, RateLimiter, type AssistantClient } from "./server";
@@ -126,6 +126,51 @@ describe("assistant handler", () => {
     });
     expect(calls[0]?.model).toBe("claude-haiku-5-5");
     expect(calls[0]?.fallbacks).toBeUndefined();
+  });
+
+  it("retries without the refusal fallback when the API rejects it and logs the reason", async () => {
+    const calls: Anthropic.Beta.MessageCreateParamsNonStreaming[] = [];
+    const logged: string[] = [];
+    const original = console.error;
+    console.error = (line: string) => void logged.push(line);
+    const client: AssistantClient = {
+      beta: {
+        messages: {
+          create: async (params) => {
+            calls.push(params);
+            if (params.fallbacks) {
+              throw new Anthropic.BadRequestError(
+                400,
+                { error: { type: "invalid_request_error", message: "fallbacks not enabled" } },
+                "fallbacks not enabled",
+                new Headers(),
+              );
+            }
+            return {
+              stop_reason: "end_turn",
+              content: [{ type: "text", text: "Tak.", citations: null }],
+            } as unknown as Anthropic.Beta.BetaMessage;
+          },
+        },
+      },
+    };
+    try {
+      const response = await handleChatRequest(post({ messages: question }), {
+        env: { ANTHROPIC_API_KEY: "test" },
+        createClient: () => client,
+        limiter: new RateLimiter(),
+      });
+      expect(response.status).toBe(200);
+      expect(await response.json()).toEqual({ reply: "Tak." });
+    } finally {
+      console.error = original;
+    }
+    expect(calls).toHaveLength(2);
+    expect(calls[1]?.fallbacks).toBeUndefined();
+    expect(calls[1]?.betas).toBeUndefined();
+    expect(logged[0]).toContain("invalid_request_error");
+    expect(logged[0]).toContain("fallbacks not enabled");
+    expect(logged[0]).not.toContain("Jak wybieracie");
   });
 
   it("replaces a refusal with a polite answer", async () => {

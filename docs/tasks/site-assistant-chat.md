@@ -38,3 +38,7 @@ See the PR description and the thread report.
 - `vite preview` middleware answered `POST /api/chat` with 503 and the "nie jest jeszcze włączony" message (no key in the container).
 - Not verified: a live Claude answer (no API key available) and the function on Vercel before the preview deployment.
 - Screenshots: project files `doroboty-ai/prototyp/2026-11-24-czatbot/` (1440 px and 375 px, mocked answer).
+
+## Follow-up 24.11.2026: "Asystent jest chwilowo niedostępny" in production
+
+After the key was set, production answered with the generic 502 message. The function logged only the status code, so the Vercel logs did not show the reason. Change: log the Anthropic error status, type and message (never the visitor's text), and if the request with the refusal-fallback beta is rejected with 400, retry once without it. FEATURES.md reviewed: the visible behaviour is unchanged, so it was not updated.

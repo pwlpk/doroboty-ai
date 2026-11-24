@@ -71,6 +71,19 @@ function json(body: unknown, status: number, headers: Record<string, string> = {
   });
 }
 
+/**
+ * Logs what Anthropic reported (status, error type and its message, e.g. low credit balance
+ * or an unknown model) so it shows in the Vercel function logs. Never logs the visitor's text.
+ */
+function logApiError(context: string, error: InstanceType<typeof Anthropic.APIError>): void {
+  const body = error.error as { error?: { type?: string; message?: string } } | undefined;
+  const type = body?.error?.type ?? "unknown_type";
+  const message = body?.error?.message ?? "no message";
+  console.error(
+    `Site assistant: ${context} (status ${error.status ?? "unknown"}, ${type}): ${message}`,
+  );
+}
+
 function clientKey(request: Request): string {
   const forwarded = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
   return forwarded || request.headers.get("x-real-ip") || "anonymous";
@@ -114,17 +127,32 @@ export async function handleChatRequest(
   const client = (options.createClient ?? ((key) => new Anthropic({ apiKey: key })))(apiKey);
   cachedSystemPrompt ??= buildSystemPrompt();
 
+  const params: Anthropic.Beta.MessageCreateParamsNonStreaming = {
+    model,
+    max_tokens: 1024,
+    output_config: { effort: "low" },
+    system: [{ type: "text", text: cachedSystemPrompt, cache_control: { type: "ephemeral" } }],
+    messages: toApiMessages(parsed.data.messages),
+  };
+
   try {
-    const response = await client.beta.messages.create({
-      model,
-      max_tokens: 1024,
-      output_config: { effort: "low" },
-      system: [{ type: "text", text: cachedSystemPrompt, cache_control: { type: "ephemeral" } }],
-      messages: toApiMessages(parsed.data.messages),
-      ...(FALLBACK_MODELS.has(model)
-        ? { betas: ["server-side-fallback-2026-07-01"], fallbacks: "default" as const }
-        : {}),
-    });
+    let response: Anthropic.Beta.BetaMessage;
+    if (FALLBACK_MODELS.has(model)) {
+      try {
+        response = await client.beta.messages.create({
+          ...params,
+          betas: ["server-side-fallback-2026-07-01"],
+          fallbacks: "default",
+        });
+      } catch (error) {
+        // An account without the refusal-fallback beta gets a 400; answer without it.
+        if (!(error instanceof Anthropic.BadRequestError)) throw error;
+        logApiError("request with refusal fallback rejected, retrying without it", error);
+        response = await client.beta.messages.create(params);
+      }
+    } else {
+      response = await client.beta.messages.create(params);
+    }
     if (response.stop_reason === "refusal") {
       return json(
         { reply: "Nie mogę pomóc w tej sprawie. Zapytaj o oferty lub działanie serwisu." },
@@ -144,11 +172,11 @@ export async function handleChatRequest(
       return json({ error: "Asystent jest teraz mocno obciążony. Spróbuj za chwilę." }, 429);
     }
     if (error instanceof Anthropic.AuthenticationError) {
-      console.error("Site assistant: Anthropic API key was rejected.");
+      logApiError("API key was rejected", error);
       return json({ error: "Asystent jest chwilowo niedostępny." }, 503);
     }
     if (error instanceof Anthropic.APIError) {
-      console.error(`Site assistant: Anthropic API error ${error.status ?? "unknown"}.`);
+      logApiError("Anthropic API error", error);
     } else {
       console.error("Site assistant: request to Anthropic failed.");
     }
